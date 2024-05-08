@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Stringnazwy Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Stringnazwy
+  m_TableCollectionNameGuidString: a2304ac061bb1ed49aaf93fcdace2d3a
+  m_Entries:
+  - m_Id: 1061244444672
+    m_Key: start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1110909198336
+    m_Key: ustawienia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1155599507456
+    m_Key: exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1694219444224
+    m_Key: fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1758266466304
+    m_Key: GRAPHICS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2176442769408
+    m_Key: low
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206243299328
+    m_Key: MEDIUM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2222613667840
+    m_Key: HIGH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2241030856704
+    m_Key: MASTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2257673854976
+    m_Key: MUSIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2270957215744
+    m_Key: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2528969826304
+    m_Key: RETURN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5388969254912
+    m_Key: LANGUAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5412688044032
+    m_Key: POLISH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5428102111232
+    m_Key: ENGLISH
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5171229103037349912
+  references:
+    version: 2
+    RefIds:
+    - rid: 5171229103037349912
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1713818432685
