@@ -7,7 +7,7 @@ public class CameraF : MonoBehaviour
     [Header("Target")]
     public Transform Player;
     [Header("Distance")]
-    public float distance = 5f;
+    [Range(2f, 10f)]public float distance = 5f;
     public float minDistance = 1f;
     public float maxDistance = 7f;
     public Vector3 offset;
@@ -16,7 +16,7 @@ public class CameraF : MonoBehaviour
     public float scrollSensitivity = 1;
 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update https://www.youtube.com/watch?v=Eyga3DzFZo8
     void Start()
     {
 
@@ -27,27 +27,21 @@ public class CameraF : MonoBehaviour
     {
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scrollInput < 0f && distance < 7)
+        // Check if scroll is not blocked due to min or max distance
+        if (!(scrollInput < 0f && distance <= minDistance) && !(scrollInput > 0f && distance >= maxDistance))
         {
             distance -= scrollInput * scrollSensitivity;
             distance = Mathf.Clamp(distance, minDistance, maxDistance);
 
             Vector3 pos = transform.position + offset;
-            pos -= transform.forward * distance;
+
+            // Adjust position based on scroll input
+            if (scrollInput < 0f)
+                pos -= transform.forward * distance;
+            else if (scrollInput > 0f)
+                pos += transform.forward * distance;
 
             transform.position = Vector3.Lerp(transform.position, pos, smoothSpeed * Time.deltaTime);
         }
-        else if (scrollInput > 0f && distance >1)
-        {
-            distance -= scrollInput * scrollSensitivity;
-            distance = Mathf.Clamp(distance, minDistance, maxDistance);
-
-            Vector3 pos = transform.position + offset;
-            pos += transform.forward * distance;
-
-            transform.position = Vector3.Lerp(transform.position, pos, smoothSpeed * Time.deltaTime);
-        }
-
-
     }
 }
