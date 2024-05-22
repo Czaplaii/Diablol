@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2186597237633976472, guid: d482e31ae81bbd14da34f6e222c6a647, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f128fcddec429b54b9a57aed3133d32e, type: 2}
     - target: {fileID: 919132149155446097, guid: d482e31ae81bbd14da34f6e222c6a647, type: 3}
       propertyPath: m_Name
       value: miecz
