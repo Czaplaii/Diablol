@@ -10,6 +10,8 @@ public class pointandclick : MonoBehaviour
     private Vector3 targetPosition;
     private int speed = 5;
 
+    public float upwardForce = 5f;
+
     void Start()
     {
         targetPosition = transform.position;
@@ -43,11 +45,14 @@ public class pointandclick : MonoBehaviour
             Vector3 clickPosition = hit.point;
             clickPosition.z = 0;
             GameObject effect = Instantiate(clickEffectPrefab, clickPosition, Quaternion.identity);
+
             Rigidbody rb = effect.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.velocity = Vector3.up * 5f;
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
             }
+
             Destroy(effect, effectLifetime);
         }
     }
