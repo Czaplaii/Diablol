@@ -50,11 +50,38 @@ public class CharacterStats : ScriptableObject
     damage = 10; // Obra¿enia
     jumplock = true;
     skillpoint = 0;
-    }
+    strength = 10;
+    dexterity = 10;
+    endurance = 10;
+    inteligence = 10;
+}
 
     public void jumpz()
     {
         jumplock = false;
         Debug.Log("mo¿esz skakaæ");
+    }
+
+    public void bonustr()
+    {
+        strength++;
+        skillpoint--;
+    }
+    public void bonusdex()
+    {
+        dexterity++;
+        skillpoint--;
+    }
+
+    public void bonusint()
+    {
+        inteligence++;
+        skillpoint--;
+    }
+
+    public void bonusend()
+    {
+        endurance++;
+        skillpoint--;
     }
 } 

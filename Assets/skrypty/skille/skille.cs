@@ -9,10 +9,13 @@ public class skille : MonoBehaviour
     [SerializeField]GameObject window;
     [SerializeField]GameObject[] list;
     [SerializeField]Text text;
+    [SerializeField]Text strvalue, dexvalue, intvalue, endvalue;
+    string convertstr,convertdex,convertint,convertend;
     [SerializeField]Button[] guzik;
     bool[] skillunlocked = {false, false, false, false, false };
     public CharacterStats characterStats;
     [SerializeField] GameObject[] roots;
+    [SerializeField] GameObject buttons;
 
 
 
@@ -49,6 +52,23 @@ public class skille : MonoBehaviour
         {
             characterStats.skillpointy(1);
         }
+
+        if (characterStats.skillpoint > 0)
+        {
+            buttons.SetActive(true);
+        }
+        else
+        {
+            buttons.SetActive(false);
+        }
+    convertstr = characterStats.strength.ToString();
+    strvalue.text=convertstr;
+        convertdex = characterStats.dexterity.ToString();
+        dexvalue.text = convertdex;
+        convertint = characterStats.inteligence.ToString();
+        intvalue.text = convertint;
+        convertend = characterStats.endurance.ToString();
+        endvalue.text = convertend;
     }
 
 
@@ -177,5 +197,23 @@ public class skille : MonoBehaviour
             guzik[5].interactable = false;
             characterStats.skillpointy(-1);
         }
+    }
+
+    public void rawstat1()
+    {
+        characterStats.bonustr();
+    }
+
+    public void rawstat2()
+    {
+        characterStats.bonusdex();
+    }
+    public void rawstat3()
+    {
+        characterStats.bonusint();
+    }
+    public void rawstat4()
+    {
+        characterStats.bonusend();
     }
 }

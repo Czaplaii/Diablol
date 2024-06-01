@@ -78,6 +78,30 @@ MonoBehaviour:
     m_Localized: ANGIELSKI
     m_Metadata:
       m_Items: []
+  - m_Id: 14447986349776896
+    m_Localized: STATYSTYKI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14448096873881600
+    m_Localized: "SI\u0141A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14448100992688128
+    m_Localized: INTELIGENCJA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14448102653632512
+    m_Localized: "WYTRZYMA\u0141O\u015A\u0106"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14448245331271680
+    m_Localized: "ZR\u0118CZNO\u015A\u0106"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14448350583136256
+    m_Localized: "Dost\u0119pne:"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
