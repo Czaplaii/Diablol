@@ -8,6 +8,7 @@ public class CharacterStats : ScriptableObject
     public float moveSpeed = 10f; // Prêdkoœæ ruchu
     public int damage = 10; // Obra¿enia
     public int hp = 100;
+    public int mana = 100;
     public bool jumplock = true;
     public int skillpoint = 0;
     //raw stats
