@@ -9,12 +9,13 @@ public class ChangeGun : MonoBehaviour
 
     GameObject currentGun;
 
-    
+    private pointandclick move;
 
     // Start is called before the first frame update
     void Start()
     {
         inventory.SetActive(false);
+        move = GetComponent<pointandclick>();
     }
 
     // Update is called once per frame
@@ -23,10 +24,12 @@ public class ChangeGun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             inventory.SetActive(true);
+            move.MovementEnable(false);
         }
         else if (Input.GetKeyUp(KeyCode.Tab))
         {
             inventory.SetActive(false);
+            move.MovementEnable(true);
         }
     }
 
