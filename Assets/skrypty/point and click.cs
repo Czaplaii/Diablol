@@ -64,8 +64,6 @@ public class pointandclick : MonoBehaviour
                 cooldown4 = 5f;
                 cooldowns4();
             }
-            RaycastHit hit;
-            Move(out hit);
 
         }
     }
