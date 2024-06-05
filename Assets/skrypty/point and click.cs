@@ -1,27 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class pointandclick : MonoBehaviour
 {
-    private Vector3 targetPosition;
-    private int speed = 5;
-    private float cooldown = 5;
-    bool cd=true;
-    private float cooldown2 = 5;
+    private NavMeshAgent agent;
+    private float cooldown = 5f;
+    bool cd = true;
+    private float cooldown2 = 5f;
     bool cd2 = true;
-    private float cooldown3 = 5;
+    private float cooldown3 = 5f;
     bool cd3 = true;
-    private float cooldown4 = 5;
+    private float cooldown4 = 5f;
     bool cd4 = true;
     [SerializeField] GameObject fireball;
 
     bool movement;
 
-
     void Start()
     {
-        targetPosition = transform.position;
+        agent = GetComponent<NavMeshAgent>();
         MovementEnable(true);
     }
 
@@ -29,8 +27,6 @@ public class pointandclick : MonoBehaviour
     {
         if (movement)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
-
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
@@ -40,31 +36,26 @@ public class pointandclick : MonoBehaviour
             if (Input.GetKey(KeyCode.Q) && cd)
             {
                 cd = false;
-                cooldown = 5f;
-                cooldowns();
+                StartCoroutine(CooldownRoutine1());
             }
 
             if (Input.GetKey(KeyCode.W) && cd2)
             {
                 cd2 = false;
-                cooldown2 = 5f;
-                cooldowns2();
+                StartCoroutine(CooldownRoutine2());
             }
 
             if (Input.GetKey(KeyCode.E) && cd3)
             {
                 cd3 = false;
-                cooldown3 = 5f;
-                cooldowns3();
+                StartCoroutine(CooldownRoutine3());
             }
 
             if (Input.GetKey(KeyCode.R) && cd4)
             {
                 cd4 = false;
-                cooldown4 = 5f;
-                cooldowns4();
+                StartCoroutine(CooldownRoutine4());
             }
-
         }
     }
 
@@ -73,65 +64,36 @@ public class pointandclick : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-            targetPosition = hit.point + new Vector3(0, 0.5f, 0);
+            agent.SetDestination(hit.point);
         }
     }
 
     public void MovementEnable(bool a)
     {
-        if (a)
-            movement = true;
-        else
-            movement = false;
+        movement = a;
     }
 
-    void cooldowns()
+    private IEnumerator CooldownRoutine1()
     {
-        if (!cd)
-        {
-            cooldown -= Time.deltaTime;
-        }
-        if(cooldown <= 0)
-        {
-            cd = true;
-        }
+        yield return new WaitForSeconds(cooldown);
+        cd = true;
     }
 
-    void cooldowns2()
+    private IEnumerator CooldownRoutine2()
     {
-        if (!cd2)
-        {
-            cooldown2 -= Time.deltaTime;
-        }
-        if (cooldown2 <= 0)
-        {
-            cd2 = true;
-        }
+        yield return new WaitForSeconds(cooldown2);
+        cd2 = true;
     }
 
-    void cooldowns3()
+    private IEnumerator CooldownRoutine3()
     {
-        if (!cd3)
-        {
-            cooldown3 -= Time.deltaTime;
-        }
-        if (cooldown3 <= 0)
-        {
-            cd3 = true;
-        }
+        yield return new WaitForSeconds(cooldown3);
+        cd3 = true;
     }
 
-    void cooldowns4()
+    private IEnumerator CooldownRoutine4()
     {
-        if (!cd4)
-        {
-            cooldown4 -= Time.deltaTime;
-        }
-        if (cooldown4 <= 0)
-        {
-            cd4 = true;
-        }
+        yield return new WaitForSeconds(cooldown4);
+        cd4 = true;
     }
-
-
 }
