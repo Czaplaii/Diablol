@@ -18,6 +18,7 @@ public class pointandclick : MonoBehaviour
 
     bool movement;
 
+
     void Start()
     {
         targetPosition = transform.position;
@@ -34,7 +35,6 @@ public class pointandclick : MonoBehaviour
             {
                 RaycastHit hit;
                 Move(out hit);
-                PlayClickEffect(hit);
             }
 
             if (Input.GetKey(KeyCode.Q) && cd)
@@ -64,6 +64,9 @@ public class pointandclick : MonoBehaviour
                 cooldown4 = 5f;
                 cooldowns4();
             }
+            RaycastHit hit;
+            Move(out hit);
+
         }
     }
 
