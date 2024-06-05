@@ -6,9 +6,17 @@ public class pointandclick : MonoBehaviour
 {
     public GameObject clickEffectPrefab;
     public float effectLifetime = 3.0f;
-
     private Vector3 targetPosition;
     private int speed = 5;
+    private float cooldown = 5;
+    bool cd=true;
+    private float cooldown2 = 5;
+    bool cd2 = true;
+    private float cooldown3 = 5;
+    bool cd3 = true;
+    private float cooldown4 = 5;
+    bool cd4 = true;
+    [SerializeField] GameObject fireball;
 
     public float upwardForce = 5f;
 
@@ -19,6 +27,7 @@ public class pointandclick : MonoBehaviour
 
     void Update()
     {
+        
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
 
         if (Input.GetMouseButtonDown(0))
@@ -26,6 +35,34 @@ public class pointandclick : MonoBehaviour
             RaycastHit hit;
             Move(out hit);
             PlayClickEffect(hit);
+        }
+        
+        if(Input.GetKey(KeyCode.Q) && cd) 
+        {
+            cd = false;
+            cooldown = 5f;
+            cooldowns();
+        }
+
+        if (Input.GetKey(KeyCode.W) && cd2)
+        {
+            cd2 = false;
+            cooldown2 = 5f;
+            cooldowns2();
+        }
+
+        if (Input.GetKey(KeyCode.E) && cd3)
+        {
+            cd3 = false;
+            cooldown3 = 5f;
+            cooldowns3();
+        }
+
+        if (Input.GetKey(KeyCode.R) && cd4)
+        {
+            cd4 = false;
+            cooldown4 = 5f;
+            cooldowns4();
         }
     }
 
@@ -35,6 +72,54 @@ public class pointandclick : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             targetPosition = hit.point + new Vector3(0, 0.5f, 0);
+        }
+    }
+
+    void cooldowns()
+    {
+        if (!cd)
+        {
+            cooldown -= Time.deltaTime;
+        }
+        if(cooldown <= 0)
+        {
+            cd = true;
+        }
+    }
+
+    void cooldowns2()
+    {
+        if (!cd2)
+        {
+            cooldown2 -= Time.deltaTime;
+        }
+        if (cooldown2 <= 0)
+        {
+            cd2 = true;
+        }
+    }
+
+    void cooldowns3()
+    {
+        if (!cd3)
+        {
+            cooldown3 -= Time.deltaTime;
+        }
+        if (cooldown3 <= 0)
+        {
+            cd3 = true;
+        }
+    }
+
+    void cooldowns4()
+    {
+        if (!cd4)
+        {
+            cooldown4 -= Time.deltaTime;
+        }
+        if (cooldown4 <= 0)
+        {
+            cd4 = true;
         }
     }
 
