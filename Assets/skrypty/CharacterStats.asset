@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   damage: 20
-  hp: 200
+  hp: 100
+  mana: 100
   jumplock: 1
   skillpoint: 1
+  strength: 10
+  dexterity: 10
+  endurance: 10
+  inteligence: 10

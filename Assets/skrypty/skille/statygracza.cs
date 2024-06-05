@@ -38,6 +38,10 @@ public class CharacterStats : ScriptableObject
     {
         hp = 200;
     }
+    public void doublemana()
+    {
+        mana = 200;
+    }
 
     public void skillpointy(int ilosc)
     {
