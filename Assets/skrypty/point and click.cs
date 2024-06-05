@@ -77,7 +77,7 @@ public class pointandclick : MonoBehaviour
         }
     }
 
-    void MovementEnable(bool a)
+    public void MovementEnable(bool a)
     {
         if (a)
             movement = true;
