@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class pointandclick : MonoBehaviour
 {
-    public GameObject clickEffectPrefab;
-    public float effectLifetime = 3.0f;
     private Vector3 targetPosition;
     private int speed = 5;
     private float cooldown = 5;
@@ -18,51 +16,54 @@ public class pointandclick : MonoBehaviour
     bool cd4 = true;
     [SerializeField] GameObject fireball;
 
-    public float upwardForce = 5f;
+    bool movement;
 
     void Start()
     {
         targetPosition = transform.position;
+        MovementEnable(true);
     }
 
     void Update()
     {
-        
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+        if (movement)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Move(out hit);
-            PlayClickEffect(hit);
-        }
-        
-        if(Input.GetKey(KeyCode.Q) && cd) 
-        {
-            cd = false;
-            cooldown = 5f;
-            cooldowns();
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                Move(out hit);
+                PlayClickEffect(hit);
+            }
 
-        if (Input.GetKey(KeyCode.W) && cd2)
-        {
-            cd2 = false;
-            cooldown2 = 5f;
-            cooldowns2();
-        }
+            if (Input.GetKey(KeyCode.Q) && cd)
+            {
+                cd = false;
+                cooldown = 5f;
+                cooldowns();
+            }
 
-        if (Input.GetKey(KeyCode.E) && cd3)
-        {
-            cd3 = false;
-            cooldown3 = 5f;
-            cooldowns3();
-        }
+            if (Input.GetKey(KeyCode.W) && cd2)
+            {
+                cd2 = false;
+                cooldown2 = 5f;
+                cooldowns2();
+            }
 
-        if (Input.GetKey(KeyCode.R) && cd4)
-        {
-            cd4 = false;
-            cooldown4 = 5f;
-            cooldowns4();
+            if (Input.GetKey(KeyCode.E) && cd3)
+            {
+                cd3 = false;
+                cooldown3 = 5f;
+                cooldowns3();
+            }
+
+            if (Input.GetKey(KeyCode.R) && cd4)
+            {
+                cd4 = false;
+                cooldown4 = 5f;
+                cooldowns4();
+            }
         }
     }
 
@@ -73,6 +74,14 @@ public class pointandclick : MonoBehaviour
         {
             targetPosition = hit.point + new Vector3(0, 0.5f, 0);
         }
+    }
+
+    void MovementEnable(bool a)
+    {
+        if (a)
+            movement = true;
+        else
+            movement = false;
     }
 
     void cooldowns()
@@ -123,22 +132,5 @@ public class pointandclick : MonoBehaviour
         }
     }
 
-    void PlayClickEffect(RaycastHit hit)
-    {
-        if (clickEffectPrefab != null)
-        {
-            Vector3 clickPosition = hit.point;
-            clickPosition.z = 0;
-            GameObject effect = Instantiate(clickEffectPrefab, clickPosition, Quaternion.identity);
 
-            Rigidbody rb = effect.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-            }
-
-            Destroy(effect, effectLifetime);
-        }
-    }
 }
