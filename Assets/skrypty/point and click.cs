@@ -16,18 +16,15 @@ public class pointandclick : MonoBehaviour
     [SerializeField] GameObject fireball;
     [SerializeField] UI_stats uiUpdate;
 
-    bool movement;
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        MovementEnable(true);
         uiUpdate = FindObjectOfType<UI_stats>();
     }
 
     void Update()
     {
-        if (movement)
+        if (MovementController.Instance.IsMovementEnabled())
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -72,11 +69,6 @@ public class pointandclick : MonoBehaviour
         {
             agent.SetDestination(hit.point);
         }
-    }
-
-    public void MovementEnable(bool a)
-    {
-        movement = a;
     }
 
     private IEnumerator CooldownRoutine1()

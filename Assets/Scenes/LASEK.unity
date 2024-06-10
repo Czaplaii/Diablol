@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 34124511}
   - component: {fileID: 34124512}
   - component: {fileID: 34124513}
+  - component: {fileID: 34124514}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -308,6 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b377cb9bd96add4eb23f8b4d929074b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireball: {fileID: 0}
+  uiUpdate: {fileID: 0}
 --- !u!195 &34124512
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -347,6 +350,18 @@ MonoBehaviour:
   - {fileID: 1625119282}
   - {fileID: 898118996}
   - {fileID: 0}
+--- !u!114 &34124514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34124506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df48417b2795a9469ef21098685071f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &95050792
 PrefabInstance:
   m_ObjectHideFlags: 0

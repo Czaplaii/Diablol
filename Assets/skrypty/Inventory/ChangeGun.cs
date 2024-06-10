@@ -24,12 +24,12 @@ public class ChangeGun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             inventory.SetActive(true);
-            move.MovementEnable(false);
+            MovementController.Instance.SetMovementEnabled(false);
         }
         else if (Input.GetKeyUp(KeyCode.Tab))
         {
             inventory.SetActive(false);
-            move.MovementEnable(true);
+            MovementController.Instance.SetMovementEnabled(true);
         }
     }
 
