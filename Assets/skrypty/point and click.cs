@@ -17,6 +17,19 @@ public class pointandclick : MonoBehaviour
     [SerializeField] GameObject fireball;
     [SerializeField] UI_stats uiUpdate;
 
+    Vector2 SmoothDeltaPosition;
+    Vector2 velocity;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+
+        animator.applyRootMotion = false;
+        agent.updatePosition = false;
+        agent.updateRotation = true;
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -72,6 +85,43 @@ public class pointandclick : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             agent.SetDestination(hit.point);
+        }
+    }
+
+    private void OnAnimatorMove()
+    {
+        Vector3 worldDeltaPosition = agent.nextPosition - transform.position;
+        worldDeltaPosition.y = 0;
+
+        float dx = Vector3.Dot(transform.right, worldDeltaPosition);
+        float dy = Vector3.Dot(transform.forward, worldDeltaPosition);
+        Vector2 deltaPosition = new Vector2(dx, dy);
+
+        float smooth = Mathf.Min(1, Time.deltaTime / 2);
+        SmoothDeltaPosition = Vector2.Lerp(SmoothDeltaPosition, deltaPosition, smooth);
+
+        velocity = SmoothDeltaPosition / Time.deltaTime;
+        if(agent.remainingDistance <= agent.stoppingDistance)
+        {
+            velocity = Vector2.Lerp(
+                Vector2.zero, 
+                velocity, 
+                agent.remainingDistance / agent.stoppingDistance);
+        }
+
+        bool shouldMove = velocity.magnitude > 0.5f && agent.remainingDistance > agent.stoppingDistance;
+
+        
+
+        animator.SetBool("move", shouldMove);
+        animator.SetFloat("locomotion", velocity.magnitude);
+        float deltaMagnitude = worldDeltaPosition.magnitude;
+        if(deltaMagnitude > agent.radius / 2) 
+        {
+            transform.position = Vector3.Lerp(
+                animator.rootPosition,
+                agent.nextPosition,
+                smooth);
         }
     }
 
