@@ -3891,18 +3891,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 038dcba9f17a82d4facfafdbf096d3d7, type: 3}
   m_PrefabInstance: {fileID: 1072806550}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1018122876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018122873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cee4febbe9a282458c342d1e8620d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &1018122877
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4025,9 +4013,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 038dcba9f17a82d4facfafdbf096d3d7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1018122876}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 038dcba9f17a82d4facfafdbf096d3d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1018122879}

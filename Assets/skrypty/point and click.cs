@@ -17,23 +17,6 @@ public class pointandclick : MonoBehaviour
     [SerializeField] GameObject fireball;
     [SerializeField] UI_stats uiUpdate;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-
-        animator.applyRootMotion = false;
-        agent.updatePosition = false;
-        agent.updateRotation = true;
-    }
-
-    private void OnAnimatorMove()
-    {
-        Vector3 rootPosition = animator.rootPosition;
-        rootPosition.y = agent.nextPosition.y;
-    }
-
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -90,12 +73,6 @@ public class pointandclick : MonoBehaviour
         {
             agent.SetDestination(hit.point);
         }
-    }
-
-    private void OnParticleSystemStopped()
-    {
-        animator.SetBool("move", agent.velocity.magnitude > 0.5f);
-        animator.SetFloat("locomotion", agent.velocity.magnitude);
     }
 
     private IEnumerator CooldownRoutine1()
