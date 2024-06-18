@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class pointandclick : MonoBehaviour
 {
     private NavMeshAgent agent;
+    private Animator animator;
     private float cooldown = 5f;
     bool cd = true;
     private float cooldown2 = 5f;
@@ -16,9 +17,27 @@ public class pointandclick : MonoBehaviour
     [SerializeField] GameObject fireball;
     [SerializeField] UI_stats uiUpdate;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+
+        animator.applyRootMotion = false;
+        agent.updatePosition = false;
+        agent.updateRotation = true;
+    }
+
+    private void OnAnimatorMove()
+    {
+        Vector3 rootPosition = animator.rootPosition;
+        rootPosition.y = agent.nextPosition.y;
+    }
+
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         uiUpdate = FindObjectOfType<UI_stats>();
     }
 
@@ -60,6 +79,8 @@ public class pointandclick : MonoBehaviour
                 uiUpdate.Rclick();
             }
         }
+
+
     }
 
     void Move(out RaycastHit hit)
@@ -69,6 +90,12 @@ public class pointandclick : MonoBehaviour
         {
             agent.SetDestination(hit.point);
         }
+    }
+
+    private void OnParticleSystemStopped()
+    {
+        animator.SetBool("move", agent.velocity.magnitude > 0.5f);
+        animator.SetFloat("locomotion", agent.velocity.magnitude);
     }
 
     private IEnumerator CooldownRoutine1()
