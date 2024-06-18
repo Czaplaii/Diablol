@@ -8,14 +8,16 @@ public class pointandclick : MonoBehaviour
     private Animator animator;
     private float cooldown = 5f;
     bool cd = true;
-    private float cooldown2 = 5f;
+    private float cooldown2 = 10f;
     bool cd2 = true;
-    private float cooldown3 = 5f;
+    private float cooldown3 = 30f;
     bool cd3 = true;
-    private float cooldown4 = 5f;
+    private float cooldown4 = 45f;
     bool cd4 = true;
-    [SerializeField] GameObject fireball;
+    [SerializeField] GameObject fireballprefab;
     [SerializeField] UI_stats uiUpdate;
+    public float fireballSpeed = 10f; // Prêdkoœæ kuli ognia
+    public float spawnDistance = 1.5f;
 
     Vector2 SmoothDeltaPosition;
     Vector2 velocity;
@@ -52,6 +54,7 @@ public class pointandclick : MonoBehaviour
                 cd = false;
                 StartCoroutine(CooldownRoutine1());
                 uiUpdate.Qclick();
+                LaunchFireball();
             }
 
             if (Input.GetKey(KeyCode.W) && cd2)
@@ -59,6 +62,7 @@ public class pointandclick : MonoBehaviour
                 cd2 = false;
                 StartCoroutine(CooldownRoutine2());
                 uiUpdate.Wclick();
+                LaunchShield();
             }
 
             if (Input.GetKey(KeyCode.E) && cd3)
@@ -66,6 +70,7 @@ public class pointandclick : MonoBehaviour
                 cd3 = false;
                 StartCoroutine(CooldownRoutine3());
                 uiUpdate.Eclick();
+                LaunchTp();
             }
 
             if (Input.GetKey(KeyCode.R) && cd4)
@@ -73,6 +78,7 @@ public class pointandclick : MonoBehaviour
                 cd4 = false;
                 StartCoroutine(CooldownRoutine4());
                 uiUpdate.Rclick();
+                LaunchAoe();
             }
         }
 
@@ -147,5 +153,60 @@ public class pointandclick : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown4);
         cd4 = true;
+    }
+    void LaunchFireball()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Vector3 targetPosition = hit.point;
+            Vector3 direction = (targetPosition - transform.position).normalized;
+            Vector3 spawnPosition = transform.position + direction * spawnDistance;
+            GameObject fireball = Instantiate(fireballprefab, spawnPosition, Quaternion.identity);
+            kulaognia fireballz = fireball.GetComponent<kulaognia>();
+            if (fireballz != null)
+            {
+                fireballz.SetDirection(targetPosition);
+                fireballz.speed = fireballSpeed;
+            }
+        }
+    }
+
+    void LaunchShield()
+    {
+        hp zdrowie;
+        zdrowie = GetComponent<hp>();
+        int increaseAmount = Mathf.RoundToInt(zdrowie.maxhealth * 0.5f);
+        // Dodaj do health
+        zdrowie.health += increaseAmount;
+        // SprawdŸ czy health nie przekroczy³ maxhealth
+        if (zdrowie.health > zdrowie.maxhealth)
+        {
+            zdrowie.health = zdrowie.maxhealth;
+        }
+        // Debugowe informacje
+        Debug.Log("Zwiêkszono zdrowie o " + increaseAmount + ". Nowe zdrowie: " + zdrowie.health);
+    }
+
+    void LaunchTp()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            NavMeshHit navHit;
+            if (NavMesh.SamplePosition(hit.point, out navHit, 0.1f, NavMesh.AllAreas))
+            {
+                agent.Warp(navHit.position);
+            }
+        }
+    }
+
+    void LaunchAoe()
+    {
+
     }
 }
