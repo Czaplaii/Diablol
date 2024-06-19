@@ -2169,6 +2169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b377cb9bd96add4eb23f8b4d929074b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manacostq: 30
+  manacostw: 50
+  manacoste: 10
+  manacostr: 80
   fireballprefab: {fileID: 0}
   uiUpdate: {fileID: 1355182750}
   fireballSpeed: 10
@@ -3970,6 +3974,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b377cb9bd96add4eb23f8b4d929074b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manacostq: 30
+  manacostw: 50
+  manacoste: 10
+  manacostr: 80
   fireballprefab: {fileID: 2884268936529658232, guid: 0fe0ec6ada551ae48af47ba689e56a39, type: 3}
   uiUpdate: {fileID: 0}
   fireballSpeed: 10

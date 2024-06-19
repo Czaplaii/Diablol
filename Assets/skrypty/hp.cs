@@ -18,7 +18,7 @@ public class hp : MonoBehaviour
     {
         if (health < 1)
         {
-            Invoke("ResetPoziomu",3);
+            Invoke(nameof(ResetPoziomu),3);
         }
         Debug.Log("zdrowie" + health);
     }
