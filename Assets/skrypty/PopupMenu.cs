@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PopupMenu : MonoBehaviour
 {
-    public GameObject popupmenu;
+    [SerializeField] GameObject popupmenu, settings_panel;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -12,16 +12,12 @@ public class PopupMenu : MonoBehaviour
             if(Time.timeScale == 1)
             {
                 Time.timeScale = 0;
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
                 popupmenu.SetActive(true);
                 
             }
             else
             {
                 ResumeGame();
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
             }
         }
     }
@@ -30,6 +26,15 @@ public class PopupMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         popupmenu.SetActive(false);
+    }
+
+    public void OpenSettings()
+    {
+        settings_panel.SetActive(true);
+    }
+    public void CloseSettings()
+    {
+        settings_panel.SetActive(false);
     }
 
     public void QuitGame()

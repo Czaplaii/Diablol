@@ -17,7 +17,7 @@ public class UI_stats : MonoBehaviour
     void Update()
     {
         UiUpdate();
-        /*if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.Z))
         {
             staty.hp -= 10;
             staty.mana -= 10;
@@ -26,14 +26,14 @@ public class UI_stats : MonoBehaviour
         {
             staty.hp += 10;
             staty.mana += 10;
-        }*/
+        }
     }
 
     void UiUpdate()
     {
-        /*HpBar.fillAmount = staty.hp / 100f;
+        HpBar.fillAmount = staty.hp / 100f;
 
-        ManaBar.fillAmount = staty.mana / 100f;*/
+        ManaBar.fillAmount = staty.mana / 100f;
     }
     public void Qclick()
     {

@@ -5599,7 +5599,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 20
+    type: 4
     angle: 1
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -5686,7 +5686,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.1
       mode: 0
       spread: 0
       speed:
@@ -14604,6 +14604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6744607592885572556}
+  - component: {fileID: -4646539556908336524}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -14630,3 +14631,17 @@ Transform:
   - {fileID: 3463838463181294347}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4646539556908336524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983144478584995812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbbadb12b75ab3240a5538c76d1978e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  czaszycia: 3

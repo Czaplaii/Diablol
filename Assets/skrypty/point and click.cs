@@ -126,7 +126,7 @@ public class pointandclick : MonoBehaviour
                 agent.remainingDistance / agent.stoppingDistance);
         }
 
-        bool shouldMove = velocity.magnitude > 0.5f && agent.remainingDistance > agent.stoppingDistance;
+        bool shouldMove = velocity.magnitude > 0.2f && agent.remainingDistance > agent.stoppingDistance;
 
         
 
