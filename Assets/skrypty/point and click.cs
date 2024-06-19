@@ -7,6 +7,8 @@ public class pointandclick : MonoBehaviour
     [SerializeField] CharacterStats staty;
     private NavMeshAgent agent;
     private Animator animator;
+    
+
     private float cooldown = 5f;
     bool cd = true;
     [SerializeField]int manacostq= 30;
@@ -31,10 +33,17 @@ public class pointandclick : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = staty.moveSpeed;
+
+        agent.acceleration = 8f;
+        agent.angularSpeed = 120f;
+        agent.stoppingDistance = 0.1f;
 
         animator.applyRootMotion = false;
         agent.updatePosition = false;
         agent.updateRotation = true;
+
+
     }
 
     void Start()
@@ -42,6 +51,9 @@ public class pointandclick : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         uiUpdate = FindObjectOfType<UI_stats>();
+
+
+
     }
 
     void Update()
@@ -51,7 +63,7 @@ public class pointandclick : MonoBehaviour
 
         if (MovementController.Instance.IsMovementEnabled())
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 RaycastHit hit;
                 Move(out hit);
@@ -115,7 +127,7 @@ public class pointandclick : MonoBehaviour
         float dy = Vector3.Dot(transform.forward, worldDeltaPosition);
         Vector2 deltaPosition = new Vector2(dx, dy);
 
-        float smooth = Mathf.Min(1, Time.deltaTime / 2);
+        float smooth = Mathf.Min(1, Time.deltaTime / 0.1f);
         SmoothDeltaPosition = Vector2.Lerp(SmoothDeltaPosition, deltaPosition, smooth);
 
         velocity = SmoothDeltaPosition / Time.deltaTime;
@@ -134,7 +146,7 @@ public class pointandclick : MonoBehaviour
         animator.SetBool("move", shouldMove);
         animator.SetFloat("locomotion", velocity.magnitude);
         float deltaMagnitude = worldDeltaPosition.magnitude;
-        if(deltaMagnitude > agent.radius / 2) 
+        if(deltaMagnitude > agent.radius / 3) 
         {
             transform.position = Vector3.Lerp(
                 animator.rootPosition,

@@ -595,6 +595,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7321029070664364311, guid: 44b00c7db33473946ad48053b41e081f, type: 3}
   m_PrefabInstance: {fileID: 129683606}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &134257833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7887888227891281046, guid: 6d6dab4e424b94147a3db92adcaf40fb, type: 3}
+  m_PrefabInstance: {fileID: 1066910479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &258210090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1209,6 +1214,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5972649215963192800, guid: a9e8049bf0879d44b905d47e8047e637, type: 3}
+      propertyPath: staty
+      value: 
+      objectReference: {fileID: 11400000, guid: b9548b136a77e22489d2625c615bf1c6, type: 2}
     - target: {fileID: 5972649215963192800, guid: a9e8049bf0879d44b905d47e8047e637, type: 3}
       propertyPath: uiUpdate
       value: 
@@ -1977,6 +1986,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b377cb9bd96add4eb23f8b4d929074b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staty: {fileID: 0}
+  manacostq: 30
+  manacostw: 50
+  manacoste: 10
+  manacostr: 80
   fireballprefab: {fileID: 0}
   uiUpdate: {fileID: 1899977467}
   fireballSpeed: 10
@@ -8768,7 +8782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c5e28f9afe0a240be552b445d5871f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventory: {fileID: 134257833}
   weapons:
   - {fileID: 0}
   - {fileID: 0}
