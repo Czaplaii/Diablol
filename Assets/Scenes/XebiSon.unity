@@ -599,7 +599,15 @@ PrefabInstance:
       value: Pistolet
       objectReference: {fileID: 0}
     - target: {fileID: 1891754940745812792, guid: 805d3451ede31dd46b1b9623aba965d2, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891754940745812792, guid: 805d3451ede31dd46b1b9623aba965d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f82a24071c60e764ba3c85a14ac8a21a, type: 2}
+    - target: {fileID: 1891754940745812792, guid: 805d3451ede31dd46b1b9623aba965d2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f82a24071c60e764ba3c85a14ac8a21a, type: 2}
     - target: {fileID: 3349226001378546576, guid: 805d3451ede31dd46b1b9623aba965d2, type: 3}
