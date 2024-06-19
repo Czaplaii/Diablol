@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class hp : MonoBehaviour
 {
+    [SerializeField] CharacterStats staty;
     public GameObject[] zdrowie;
-    public int maxhealth = 100;
-    public int health = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +15,11 @@ public class hp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health < 1)
+        if (staty.hp < 1)
         {
             Invoke(nameof(ResetPoziomu),3);
         }
-        Debug.Log("zdrowie" + health);
+        Debug.Log("zdrowie" + staty.hp);
     }
 
 

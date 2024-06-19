@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class pointandclick : MonoBehaviour
 {
+    [SerializeField] CharacterStats staty;
     private NavMeshAgent agent;
     private Animator animator;
     private float cooldown = 5f;
@@ -189,13 +190,13 @@ public class pointandclick : MonoBehaviour
     {
         hp zdrowie;
         zdrowie = GetComponent<hp>();
-        int increaseAmount = Mathf.RoundToInt(zdrowie.maxhealth * 0.5f);
-        zdrowie.health += increaseAmount;
-        if (zdrowie.health > zdrowie.maxhealth)
+        int increaseAmount = Mathf.RoundToInt(staty.maxhp * 0.5f);
+        staty.hp  += increaseAmount;
+        if (staty.hp > staty.maxhp)
         {
-            zdrowie.health = zdrowie.maxhealth;
+            staty.hp = staty.maxhp;
         }
-        Debug.Log("Zwiêkszono zdrowie o " + increaseAmount + ". Nowe zdrowie: " + zdrowie.health);
+        Debug.Log("Zwiêkszono zdrowie o " + increaseAmount + ". Nowe zdrowie: " + staty.hp);
     }
 
     void LaunchTp()

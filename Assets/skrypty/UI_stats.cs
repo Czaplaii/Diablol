@@ -11,7 +11,7 @@ public class UI_stats : MonoBehaviour
 
     void Start()
     {
-        staty = FindObjectOfType<CharacterStats>();
+        //staty = FindObjectOfType<CharacterStats>();
     }
 
     void Update()
