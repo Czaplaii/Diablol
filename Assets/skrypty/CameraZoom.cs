@@ -10,8 +10,8 @@ public class CameraZoom : MonoBehaviour
     float cameraDistance;
 
     [SerializeField] float sensitivity = 10f;
-    [SerializeField] float minDistance = 1f;
-    [SerializeField] float maxDistance = 8f;
+    [SerializeField] float minDistance = 10f;
+    [SerializeField] float maxDistance = 25f;
 
     void Update()
     {
