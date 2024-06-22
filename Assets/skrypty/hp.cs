@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class hp : MonoBehaviour
 {
     [SerializeField] CharacterStats staty;
-    public GameObject[] zdrowie;
     // Start is called before the first frame update
     void Start()
     {
+        staty.hp = staty.maxhp;
     }
 
     // Update is called once per frame

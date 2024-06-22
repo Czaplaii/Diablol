@@ -37,35 +37,34 @@ public class UI_stats : MonoBehaviour
     }
     public void Qclick()
     {
-        StartCoroutine(Cooldown(skill1));
+        StartCoroutine(Cooldown(skill1,staty.cooldownq));
     }
 
     public void Wclick()
     {
-        StartCoroutine(Cooldown(skill2));
+        StartCoroutine(Cooldown(skill2, staty.cooldownw));
     }
 
     public void Eclick()
     {
-        StartCoroutine(Cooldown(skill3));
+        StartCoroutine(Cooldown(skill3, staty.cooldowne));
     }
 
     public void Rclick()
     {
-        StartCoroutine(Cooldown(skill4));
+        StartCoroutine(Cooldown(skill4, staty.cooldownr));
     }
 
-    IEnumerator Cooldown(Image skill)
+    IEnumerator Cooldown(Image skill, float cd)
     {
-        float cooldownTime = 5f;
         float elapsedTime = 0f;
 
         skill.fillAmount = 1f;
 
-        while (elapsedTime < cooldownTime)
+        while (elapsedTime < cd)
         {
             elapsedTime += Time.deltaTime;
-            skill.fillAmount = Mathf.Lerp(1f, 0f, elapsedTime / cooldownTime);
+            skill.fillAmount = Mathf.Lerp(1f, 0f, elapsedTime / cd);
             yield return null;
         }
     }

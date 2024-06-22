@@ -18,6 +18,12 @@ public class CharacterStats : ScriptableObject
     public int dexterity = 10;
     public int endurance = 10;
     public int inteligence = 10;
+    public int wisdom = 10;
+    //cooldowns
+    public float cooldownq = 5f;
+    public float cooldownw = 10f;
+    public float cooldowne = 30f;
+    public float cooldownr = 45f;
 
 
     public void bonusms(float ilosc)
@@ -55,18 +61,12 @@ public class CharacterStats : ScriptableObject
     {
     moveSpeed = 10f; // Prêdkoœæ ruchu
     damage = 10; // Obra¿enia
-    jumplock = true;
     skillpoint = 0;
     strength = 10;
     dexterity = 10;
     endurance = 10;
     inteligence = 10;
-}
-
-    public void jumpz()
-    {
-        jumplock = false;
-        Debug.Log("mo¿esz skakaæ");
+    wisdom = 10;
     }
 
     public void bonustr()
@@ -89,6 +89,11 @@ public class CharacterStats : ScriptableObject
     public void bonusend()
     {
         endurance++;
+        skillpoint--;
+    }
+    public void bonuswis()
+    {
+        wisdom++;
         skillpoint--;
     }
 } 

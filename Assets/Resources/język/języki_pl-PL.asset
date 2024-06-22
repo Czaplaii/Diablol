@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: "j\u0119zyki_pl-PL"
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pl-PL
+  m_SharedData: {fileID: 11400000, guid: f86ba27e9729eac4c8ba59b5adf8c939, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 11502428160
+    m_Localized: ROZPOCZNIJ
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15327633408
+    m_Localized: USTAWIENIA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17722580992
+    m_Localized: "WYJD\u0179"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22202097664
+    m_Localized: "POWR\xD3T"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24605433856
+    m_Localized: "PE\u0141NY EKRAN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 518459564032
+    m_Localized: GRAFIKA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 588663824384
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 581470593024
+    m_Localized: Muzyka
+    m_Metadata:
+      m_Items: []
+  - m_Id: 554534772736
+    m_Localized: "G\u0142o\u015Bno\u015Bc Og\xF3lna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 840032657408
+    m_Localized: Jezyk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 889236037632
+    m_Localized: Polski
+    m_Metadata:
+      m_Items: []
+  - m_Id: 933683077120
+    m_Localized: Angielski
+    m_Metadata:
+      m_Items: []
+  - m_Id: 993804230656
+    m_Localized: STEROWANIE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2257443168256
+    m_Localized: "Powr\xF3t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259888447488
+    m_Localized: "Si\u0142a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2261784272896
+    m_Localized: "Zr\u0119czno\u015B\u0107"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2945107697664
+    m_Localized: "Wytrzyma\u0142o\u015B\u0107"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947003523072
+    m_Localized: Inteligencja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2949352333312
+    m_Localized: "M\u0105dro\u015B\u0107"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5237961728000
+    m_Localized: "Punkty wydane w tej kategorii permamentnie zwi\u0119kszaj\u0105
+      statystyki wampira."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5452303245312
+    m_Localized: "Si\u0142a zwi\u0119ksza obra\u017Cenia zadawane broni\u0105 ci\u0119\u017Ck\u0105
+      oraz nieznacznie zwi\u0119kszy zdrowie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5486344216576
+    m_Localized: "Zr\u0119czno\u015B\u0107 poprawi Twoj\u0105 zdolno\u015B\u0107
+      korzystania z broni lekkiej oraz zwi\u0119kszy pr\u0119dko\u015B\u0107 wampira."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5488110018560
+    m_Localized: "Wytrzyma\u0142o\u015B\u0107 zwi\u0119ksza \u017Cywotno\u015B\u0107
+      wampira."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5490328805376
+    m_Localized: "Inteligencja zwi\u0119kszy pot\u0119g\u0119 Twoich zakl\u0119\u0107"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5494984482816
+    m_Localized: "M\u0105dro\u015B\u0107 zwi\u0119kszy Twoje rezerwy many"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13461884575744
+    m_Localized: STATYSTYKI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16424791252992
+    m_Localized: "Dost\u0119pne ulepszenia:"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

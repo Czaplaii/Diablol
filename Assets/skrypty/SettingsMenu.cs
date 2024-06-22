@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.Localization.Settings;
 public class SettingsMenu : MonoBehaviour
 {
-    private bool active=false;
+    private bool active = false;
 
     public void ChangeLocale(int localeID)
     {
-        if(active)
+        if (active)
         {
             return;
         }
@@ -19,11 +19,11 @@ public class SettingsMenu : MonoBehaviour
         active = true;
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
-        PlayerPrefs.SetInt("LocaleKey", _localeID );
+        PlayerPrefs.SetInt("LocaleKey", _localeID);
         active = false;
     }
 
-    public void SetQuality (int qualityIndex)
+    public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
     }

@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,8 @@ public class skille : MonoBehaviour
     [SerializeField]GameObject window;
     [SerializeField]GameObject[] list;
     [SerializeField]Text text;
-    [SerializeField]Text strvalue, dexvalue, intvalue, endvalue;
-    string convertstr,convertdex,convertint,convertend;
+    [SerializeField]Text strvalue, dexvalue, intvalue, endvalue, wisvalue;
+    string convertstr,convertdex,convertint,convertend,convertwis;
     [SerializeField]Button[] guzik;
     bool[] skillunlocked = {false, false, false, false, false };
     public CharacterStats characterStats;
@@ -28,7 +29,8 @@ public class skille : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       text.text = ("Dostêpne: " + characterStats.skillpoint);
+        string convertxt = characterStats.skillpoint.ToString();
+        text.text = (convertxt);
         if (Input.GetKeyDown(KeyCode.U))
         {
             Debug.Log("klik");
@@ -69,6 +71,8 @@ public class skille : MonoBehaviour
         intvalue.text = convertint;
         convertend = characterStats.endurance.ToString();
         endvalue.text = convertend;
+        convertwis = characterStats.wisdom.ToString();
+        wisvalue.text = convertwis;
     }
 
 
@@ -137,18 +141,19 @@ public class skille : MonoBehaviour
             characterStats.bonusms(2f);
             guzik[0].interactable = false;
             characterStats.skillpointy(-1);
-            skillunlocked[1] = true;
+            skillunlocked[0] = true;
             roots[0].SetActive(true);
         }
     }
 
     public void skill2()
     {
-        if (characterStats.skillpoint > 0 && skillunlocked[1])
+        if (characterStats.skillpoint > 0 && skillunlocked[0])
         {
             characterStats.bonusms(2f);
             guzik[1].interactable = false;
             characterStats.skillpointy(-1);
+            skillunlocked[1] = true;
             skillunlocked[2] = true;
             roots[1].SetActive(true);
             roots[2].SetActive(true);
@@ -157,7 +162,7 @@ public class skille : MonoBehaviour
 
     public void skill3()
     {
-        if (characterStats.skillpoint > 0 && skillunlocked[2])
+        if (characterStats.skillpoint > 0 && skillunlocked[1])
         {
             characterStats.bonusdmg();
             guzik[2].interactable = false;
@@ -171,27 +176,26 @@ public class skille : MonoBehaviour
     {
         if (characterStats.skillpoint > 0 && skillunlocked[2])
         {
-            characterStats.jumpz();
             guzik[3].interactable = false;
             characterStats.skillpointy(-1);
-            skillunlocked[4] = true;
-            roots[4].SetActive(true);
         }
     }
 
     public void skill5()
     {
-        if (characterStats.skillpoint > 0 && skillunlocked[4])
+        if (characterStats.skillpoint > 0 && skillunlocked[3])
         {
             characterStats.doublehp();
             guzik[4].interactable = false;
             characterStats.skillpointy(-1);
+            roots[3].SetActive(true);
+            skillunlocked[4] = true;
         }
     }
 
     public void skill6()
     {
-        if (characterStats.skillpoint > 0 && skillunlocked[3])
+        if (characterStats.skillpoint > 0 && skillunlocked[4])
         {
             characterStats.doubledmg();
             guzik[5].interactable = false;

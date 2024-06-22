@@ -8,17 +8,12 @@ public class pointandclick : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     
-
-    private float cooldown = 5f;
     bool cd = true;
     [SerializeField]int manacostq= 30;
-    private float cooldown2 = 10f;
     bool cd2 = true;
     [SerializeField]int manacostw = 50;
-    private float cooldown3 = 30f;
     bool cd3 = true;
     [SerializeField]int manacoste = 10;
-    private float cooldown4 = 45f;
     bool cd4 = true;
     [SerializeField] int manacostr = 80;
    [SerializeField] GameObject fireballprefab;
@@ -69,40 +64,40 @@ public class pointandclick : MonoBehaviour
                 Move(out hit);
             }
 
-            if (Input.GetKey(KeyCode.Q) && cd && magia.mana>manacostq)
+            if (Input.GetKey(KeyCode.Q) && cd && staty.mana>manacostq)
             {
                 cd = false;
                 StartCoroutine(CooldownRoutine1());
                 uiUpdate.Qclick();
-                magia.mana -= manacostq;
+                staty.mana -= manacostq;
                 LaunchFireball();
             }
 
-            if (Input.GetKey(KeyCode.W) && cd2 && magia.mana > manacostw)
+            if (Input.GetKey(KeyCode.W) && cd2 && staty.mana > manacostw)
             {
                 cd2 = false;
                 StartCoroutine(CooldownRoutine2());
                 uiUpdate.Wclick();
                 LaunchShield();
-                magia.mana -= manacostw;
+                staty.mana -= manacostw;
             }
 
-            if (Input.GetKey(KeyCode.E) && cd3 && magia.mana > manacoste)
+            if (Input.GetKey(KeyCode.E) && cd3 && staty.mana > manacoste)
             {
                 cd3 = false;
                 StartCoroutine(CooldownRoutine3());
                 uiUpdate.Eclick();
                 LaunchTp();
-                magia.mana -= manacoste;
+                staty.mana -= manacoste;
             }
 
-            if (Input.GetKey(KeyCode.R) && cd4 && magia.mana > manacostr)
+            if (Input.GetKey(KeyCode.R) && cd4 && staty.mana > manacostr)
             {
                 cd4 = false;
                 StartCoroutine(CooldownRoutine4());
                 uiUpdate.Rclick();
                 LaunchAoe();
-                magia.mana -= manacostr ;
+                staty.mana -= manacostr ;
             }
         }
 
@@ -157,25 +152,25 @@ public class pointandclick : MonoBehaviour
 
     private IEnumerator CooldownRoutine1()
     {
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(staty.cooldownq);
         cd = true;
     }
 
     private IEnumerator CooldownRoutine2()
     {
-        yield return new WaitForSeconds(cooldown2);
+        yield return new WaitForSeconds(staty.cooldownw);
         cd2 = true;
     }
 
     private IEnumerator CooldownRoutine3()
     {
-        yield return new WaitForSeconds(cooldown3);
+        yield return new WaitForSeconds(staty.cooldowne);
         cd3 = true;
     }
 
     private IEnumerator CooldownRoutine4()
     {
-        yield return new WaitForSeconds(cooldown4);
+        yield return new WaitForSeconds(staty.cooldownr);
         cd4 = true;
     }
     void LaunchFireball()

@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class Mana : MonoBehaviour
 {
-    int maxmana = 100;
-    public int mana = 100;
+    [SerializeField] CharacterStats staty;
     // Start is called before the first frame update
     void Start()
     {
+        staty.mana = staty.maxmana;
         StartCoroutine(Regen());
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("mana" + mana);
+        Debug.Log("mana" + staty.mana);
 
     }
 
@@ -26,12 +26,12 @@ public class Mana : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
 
-            if (mana < maxmana)
+            if (staty.mana < staty.maxmana)
             {
-                mana += 1;
-                if (mana > maxmana)
+                staty.mana += 1;
+                if (staty.mana > staty.maxmana)
                 {
-                    mana = maxmana;
+                    staty.mana = staty.maxmana;
                 }
             }
         }
