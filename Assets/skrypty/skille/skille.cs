@@ -17,6 +17,7 @@ public class skille : MonoBehaviour
     public CharacterStats characterStats;
     [SerializeField] GameObject[] roots;
     [SerializeField] GameObject buttons;
+    [SerializeField] GameObject page1, page2;
 
 
 
@@ -24,6 +25,7 @@ public class skille : MonoBehaviour
     void Start()
     {
         characterStats.Reset();
+        PlayerPrefs.SetInt("currentpage", 1);
     }
 
     // Update is called once per frame
@@ -37,15 +39,11 @@ public class skille : MonoBehaviour
             if (window.activeSelf)
             {
                 window.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
                 Time.timeScale = 1f;
             }
             else 
             { 
                 window.SetActive(true);
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
                 Time.timeScale = 0.1f;
             }
         }
@@ -138,7 +136,7 @@ public class skille : MonoBehaviour
     {
         if (characterStats.skillpoint > 0)
         {
-            characterStats.bonusms(2f);
+            characterStats.doublehp();
             guzik[0].interactable = false;
             characterStats.skillpointy(-1);
             skillunlocked[0] = true;
@@ -150,7 +148,7 @@ public class skille : MonoBehaviour
     {
         if (characterStats.skillpoint > 0 && skillunlocked[0])
         {
-            characterStats.bonusms(2f);
+            PlayerPrefs.SetInt("qskill", 1);
             guzik[1].interactable = false;
             characterStats.skillpointy(-1);
             skillunlocked[1] = true;
@@ -164,7 +162,7 @@ public class skille : MonoBehaviour
     {
         if (characterStats.skillpoint > 0 && skillunlocked[1])
         {
-            characterStats.bonusdmg();
+            characterStats.doublemana();
             guzik[2].interactable = false;
             characterStats.skillpointy(-1);
             skillunlocked[3] = true;
@@ -176,6 +174,7 @@ public class skille : MonoBehaviour
     {
         if (characterStats.skillpoint > 0 && skillunlocked[2])
         {
+            PlayerPrefs.SetInt("wskill", 1);
             guzik[3].interactable = false;
             characterStats.skillpointy(-1);
         }
@@ -185,7 +184,7 @@ public class skille : MonoBehaviour
     {
         if (characterStats.skillpoint > 0 && skillunlocked[3])
         {
-            characterStats.doublehp();
+            PlayerPrefs.SetInt("eskill", 1);
             guzik[4].interactable = false;
             characterStats.skillpointy(-1);
             roots[3].SetActive(true);
@@ -197,7 +196,7 @@ public class skille : MonoBehaviour
     {
         if (characterStats.skillpoint > 0 && skillunlocked[4])
         {
-            characterStats.doubledmg();
+            PlayerPrefs.SetInt("rskill", 1);
             guzik[5].interactable = false;
             characterStats.skillpointy(-1);
         }
@@ -212,12 +211,31 @@ public class skille : MonoBehaviour
     {
         characterStats.bonusdex();
     }
-    public void rawstat3()
+    public void rawstat4()
     {
         characterStats.bonusint();
     }
-    public void rawstat4()
+    public void rawstat3()
     {
         characterStats.bonusend();
     }
+
+    public void rawstat5()
+    {
+        characterStats.bonuswis();
+    }
+
+    public void pager1()
+    {
+        page1.SetActive(true);
+        page2.SetActive(false);
+        PlayerPrefs.SetInt("currentpage", 1);
+    }
+
+    public void pager2()
+    {
+        page1.SetActive(false);
+        page2.SetActive(true);
+        PlayerPrefs.SetInt("currentpage", 2);
+    } 
 }

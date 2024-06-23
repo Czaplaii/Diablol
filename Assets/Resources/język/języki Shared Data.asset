@@ -123,6 +123,54 @@ MonoBehaviour:
     m_Key: "DOST\u0118PNE SKILLE"
     m_Metadata:
       m_Items: []
+  - m_Id: 263549592608768
+    m_Key: Skill1 T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263554780962816
+    m_Key: Skill1 D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263558174154752
+    m_Key: Skill2 T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263560766234624
+    m_Key: Skill2 D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263563261845504
+    m_Key: Skill3 T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263565166059520
+    m_Key: Skill3 D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263567586172928
+    m_Key: Skill4 T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263569297448960
+    m_Key: Skill4 D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263574624215040
+    m_Key: Skill5 T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263576192884736
+    m_Key: Skill5 D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263578831101952
+    m_Key: Skill6 T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263579879677952
+    m_Key: Skill6 D
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

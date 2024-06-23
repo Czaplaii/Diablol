@@ -37,18 +37,15 @@ public class CharacterStats : ScriptableObject
         damage = damage+ (damage/10);
         Debug.Log("New damage: " + damage);
     }
-    public void doubledmg()
-    {
-        damage = 20;
-    }
-
     public void doublehp()
     {
-        hp = 200;
+        hp += 50 ;
+        maxhp += 50;
     }
     public void doublemana()
     {
-        mana = 200;
+        mana += 50;
+        maxmana += 50;
     }
 
     public void skillpointy(int ilosc)

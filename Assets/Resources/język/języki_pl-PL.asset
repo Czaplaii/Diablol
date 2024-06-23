@@ -130,6 +130,54 @@ MonoBehaviour:
     m_Localized: "Dost\u0119pne ulepszenia:"
     m_Metadata:
       m_Items: []
+  - m_Id: 263549592608768
+    m_Localized: "WYTRZYMA\u0141Y MORDERCA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263554780962816
+    m_Localized: Zdrowie znacznie wzrasta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263558174154752
+    m_Localized: PIEKIELNY OGNIK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263560766234624
+    m_Localized: "Odblokowujesz Kul\u0119 Ognia(Q)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263563261845504
+    m_Localized: "BLU\u0179NIERCZA MAGIA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263565166059520
+    m_Localized: "Magia znacz\u0105co wzrasta"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263567586172928
+    m_Localized: WAMPIRYCZNY WIGOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263569297448960
+    m_Localized: "Odblokowujesz umiej\u0119tno\u015B\u0107 leczenia (W)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263576192884736
+    m_Localized: "Odblokowujesz umiej\u0119tno\u015B\u0107 teleportacji(E)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263574624215040
+    m_Localized: "ZAGI\u0118CIE WYMIAR\xD3W"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263578831101952
+    m_Localized: "ZAG\u0141ADA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263579879677952
+    m_Localized: "Odblokowujesz umiej\u0119tno\u015B\u0107 eksplozji(R)"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

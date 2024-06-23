@@ -128,6 +128,54 @@ MonoBehaviour:
     m_Localized: 'Levels available:'
     m_Metadata:
       m_Items: []
+  - m_Id: 263549592608768
+    m_Localized: HEALTHY KILLER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263554780962816
+    m_Localized: Great health increase
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263558174154752
+    m_Localized: HELLFIRE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263560766234624
+    m_Localized: Unlocks Fireball(Q)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263563261845504
+    m_Localized: PROFANED MAGIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263565166059520
+    m_Localized: Great mana increase
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263567586172928
+    m_Localized: VAMPIRIC VIGOUR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263569297448960
+    m_Localized: Unlocks healing ability(W)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263574624215040
+    m_Localized: DIMENSION WARP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263576192884736
+    m_Localized: Unlocks teleportation ability(E)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263578831101952
+    m_Localized: DOOM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263579879677952
+    m_Localized: Unlocks explosion ability(R)
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

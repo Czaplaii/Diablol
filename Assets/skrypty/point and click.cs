@@ -7,7 +7,6 @@ public class pointandclick : MonoBehaviour
     [SerializeField] CharacterStats staty;
     private NavMeshAgent agent;
     private Animator animator;
-    
     bool cd = true;
     [SerializeField]int manacostq= 30;
     bool cd2 = true;
@@ -56,6 +55,13 @@ public class pointandclick : MonoBehaviour
         Mana magia;
         magia = GetComponent<Mana>();
 
+        //czy moge skilla u¿yæ
+        int q = PlayerPrefs.GetInt("qskill");
+        int w = PlayerPrefs.GetInt("wskill");
+        int e = PlayerPrefs.GetInt("eskill");
+        int r = PlayerPrefs.GetInt("rskill");
+
+        //przyciski
         if (MovementController.Instance.IsMovementEnabled())
         {
             if (Input.GetMouseButton(0))
@@ -64,7 +70,7 @@ public class pointandclick : MonoBehaviour
                 Move(out hit);
             }
 
-            if (Input.GetKey(KeyCode.Q) && cd && staty.mana>manacostq)
+            if (Input.GetKey(KeyCode.Q) && cd && staty.mana>manacostq && q == 1)
             {
                 cd = false;
                 StartCoroutine(CooldownRoutine1());
@@ -73,7 +79,7 @@ public class pointandclick : MonoBehaviour
                 LaunchFireball();
             }
 
-            if (Input.GetKey(KeyCode.W) && cd2 && staty.mana > manacostw)
+            if (Input.GetKey(KeyCode.W) && cd2 && staty.mana > manacostw && w == 1)
             {
                 cd2 = false;
                 StartCoroutine(CooldownRoutine2());
@@ -82,7 +88,7 @@ public class pointandclick : MonoBehaviour
                 staty.mana -= manacostw;
             }
 
-            if (Input.GetKey(KeyCode.E) && cd3 && staty.mana > manacoste)
+            if (Input.GetKey(KeyCode.E) && cd3 && staty.mana > manacoste && e == 1)
             {
                 cd3 = false;
                 StartCoroutine(CooldownRoutine3());
@@ -91,7 +97,7 @@ public class pointandclick : MonoBehaviour
                 staty.mana -= manacoste;
             }
 
-            if (Input.GetKey(KeyCode.R) && cd4 && staty.mana > manacostr)
+            if (Input.GetKey(KeyCode.R) && cd4 && staty.mana > manacostr && r == 1)
             {
                 cd4 = false;
                 StartCoroutine(CooldownRoutine4());
