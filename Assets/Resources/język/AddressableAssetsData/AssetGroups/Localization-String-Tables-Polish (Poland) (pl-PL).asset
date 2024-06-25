@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: c3c8f1d31e5099f44987a57fc8b17995
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 66b280f9b3fca5143a9fd3b6647534bc
+    m_Address: "j\u0119zyki_pl-PL"
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pl-PL
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: cadbb6ec81aed394c8695b8dc671f0d9, type: 2}
   m_SchemaSet:

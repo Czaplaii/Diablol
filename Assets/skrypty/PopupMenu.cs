@@ -18,6 +18,7 @@ public class PopupMenu : MonoBehaviour
             else
             {
                 ResumeGame();
+                popupmenu.SetActive(false);
             }
         }
     }
