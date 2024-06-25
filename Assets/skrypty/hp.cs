@@ -19,7 +19,8 @@ public class hp : MonoBehaviour
         {
             Invoke(nameof(ResetPoziomu),3);
         }
-        Debug.Log("zdrowie" + staty.hp);
+        Debug.Log("zdrowie" + staty.maxhp);
+        Debug.Log("mana" + staty.maxmana);
     }
 
 

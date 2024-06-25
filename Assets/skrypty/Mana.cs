@@ -16,7 +16,6 @@ public class Mana : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("mana" + staty.mana);
 
     }
 

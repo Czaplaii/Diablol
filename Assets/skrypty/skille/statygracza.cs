@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterStats : ScriptableObject
 {
     public float moveSpeed = 10f; // Prêdkoœæ ruchu
-    public int damage = 10; // Obra¿enia
+    //public int damage = 10; // Obra¿enia
     public int maxhp = 100;
     public int hp = 100;
     public int mana = 100;
@@ -24,7 +24,11 @@ public class CharacterStats : ScriptableObject
     public float cooldownw = 10f;
     public float cooldowne = 30f;
     public float cooldownr = 45f;
-
+    //true damage
+    public double fireballdmg = 30;
+    public double explosiondmg = 60;
+    public double aadmgstr = 20;
+    public double aadmgdex = 15;
 
     public void bonusms(float ilosc)
     {
@@ -32,11 +36,6 @@ public class CharacterStats : ScriptableObject
         Debug.Log("New move speed: " + moveSpeed);
     }
 
-    public void bonusdmg()
-    {
-        damage = damage+ (damage/10);
-        Debug.Log("New damage: " + damage);
-    }
     public void doublehp()
     {
         hp += 50 ;
@@ -57,14 +56,22 @@ public class CharacterStats : ScriptableObject
     public void Reset()
     {
     moveSpeed = 10f; // Prêdkoœæ ruchu
-    damage = 10; // Obra¿enia
+   // damage = 10; // Obra¿enia
     skillpoint = 0;
     strength = 10;
     dexterity = 10;
     endurance = 10;
     inteligence = 10;
     wisdom = 10;
-    }
+    mana = 100;
+    maxmana = 100;
+    hp = 100;
+    maxhp = 100;
+    fireballdmg = 30;
+    explosiondmg = 60;
+    aadmgstr = 20;
+    aadmgdex = 15;
+}
 
     public void bonustr()
     {
@@ -92,5 +99,35 @@ public class CharacterStats : ScriptableObject
     {
         wisdom++;
         skillpoint--;
+    }
+
+    public void fbdmg()
+    {
+        fireballdmg = 30 + (inteligence * 1.2);
+    }
+
+    public void explodmg()
+    {
+        explosiondmg = 60 + (inteligence * 1.5);
+    }
+
+    public void aadmgfromstr()
+    {
+        aadmgstr = 20 + (strength * 0.8);
+    }
+
+    public void aadmgfromdex()
+    {
+        aadmgdex = 15 + (dexterity * 0.4);
+    }
+
+    public void healthboost()
+    {
+        maxhp = maxhp + (5 * (endurance - 10) + 2 * (strength - 10));
+    }
+
+    public void manaboost()
+    {
+        maxmana = maxmana + (5 * (wisdom - 10) + 2 * (inteligence - 10));
     }
 } 

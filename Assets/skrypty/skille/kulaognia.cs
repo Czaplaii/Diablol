@@ -27,6 +27,10 @@ public class kulaognia : MonoBehaviour
     // Zdarzenie kolizji
     void OnCollisionEnter(Collision collision)
     {
+        if ((collision.collider.CompareTag("enemy")))
+        {
+            //zadaj obra¿enia przeciwnikowi jak trafisz
+        }
         // Zniszczenie kuli ognia po trafieniu w obiekt
         Destroy(gameObject);
     }

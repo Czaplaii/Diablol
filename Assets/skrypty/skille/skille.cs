@@ -187,7 +187,7 @@ public class skille : MonoBehaviour
             PlayerPrefs.SetInt("eskill", 1);
             guzik[4].interactable = false;
             characterStats.skillpointy(-1);
-            roots[3].SetActive(true);
+            roots[5].SetActive(true);
             skillunlocked[4] = true;
         }
     }
@@ -202,27 +202,34 @@ public class skille : MonoBehaviour
         }
     }
 
+    //raw statystyki
     public void rawstat1()
     {
         characterStats.bonustr();
+        characterStats.healthboost();
+        characterStats.aadmgfromstr();
     }
 
     public void rawstat2()
     {
         characterStats.bonusdex();
+        characterStats.aadmgfromdex();
     }
     public void rawstat4()
     {
         characterStats.bonusint();
+        characterStats.manaboost();
     }
     public void rawstat3()
     {
         characterStats.bonusend();
+        characterStats.healthboost();
     }
 
     public void rawstat5()
     {
         characterStats.bonuswis();
+        characterStats.manaboost();
     }
 
     public void pager1()

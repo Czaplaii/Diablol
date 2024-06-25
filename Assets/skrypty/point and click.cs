@@ -19,7 +19,7 @@ public class pointandclick : MonoBehaviour
     [SerializeField] UI_stats uiUpdate;
     public float fireballSpeed = 10f;
     public float spawnDistance = 1.5f;
-
+    [SerializeField] GameObject implosion;
     Vector2 SmoothDeltaPosition;
     Vector2 velocity;
 
@@ -68,6 +68,11 @@ public class pointandclick : MonoBehaviour
             {
                 RaycastHit hit;
                 Move(out hit);
+            }
+
+            if(Input.GetKey(KeyCode.Space))
+            {
+
             }
 
             if (Input.GetKey(KeyCode.Q) && cd && staty.mana>manacostq && q == 1)
@@ -229,6 +234,16 @@ public class pointandclick : MonoBehaviour
 
     void LaunchAoe()
     {
+        implosion.SetActive(true);
+        Invoke("AoeOff", 1);
+    }
 
+    void AoeOff()
+    {
+        implosion.SetActive(false);
+    }
+    void AutoAttack()
+    {
+        //tu skrypt do atakowania
     }
 }
