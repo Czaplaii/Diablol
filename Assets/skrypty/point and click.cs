@@ -24,6 +24,7 @@ public class pointandclick : MonoBehaviour
     Vector2 velocity;
 
     bool AttackDone;
+    [SerializeField] ParticleSystem healPrefab;
 
     private void Awake()
     {
@@ -207,10 +208,21 @@ public class pointandclick : MonoBehaviour
 
     void LaunchShield()
     {
+        Vector3 agentPosition = agent.transform.position;
+        agentPosition.y = 0;
         hp zdrowie;
         zdrowie = GetComponent<hp>();
         int increaseAmount = Mathf.RoundToInt(staty.maxhp * 0.5f);
-        staty.hp  += increaseAmount;
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cast heal"))
+        {
+            animator.StopPlayback();
+            SetHealDone(false);
+            animator.SetTrigger("Heal");
+            Instantiate(healPrefab, agentPosition, Quaternion.identity);
+            Debug.Log("Posz³o info");
+            SetHealDone(true);
+        }
+            staty.hp  += increaseAmount;
         if (staty.hp > staty.maxhp)
         {
             staty.hp = staty.maxhp;
@@ -247,16 +259,12 @@ public class pointandclick : MonoBehaviour
     {
         //bool autoAttack = animator.Get;
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
-            if (animator == null)
-            {
-                Debug.LogWarning("Animator is not assigned.");
-                return;
-            }
-            SetAttackDoneFalse();
+            animator.StopPlayback();
+            SetAttackDone(false);
             Debug.Log("ATAK");
             animator.SetTrigger("AutoAttack");
 
-            SetAttackDoneTrue();
+            SetAttackDone(true);
         }
     }
 
@@ -264,16 +272,9 @@ public class pointandclick : MonoBehaviour
     {
         animator.SetBool("AttackDone", value);
     }
-
-    void SetAttackDoneTrue()
+    
+    void SetHealDone(bool value)
     {
-        SetAttackDone(true);
-
+        animator.SetBool("Heal", value);
     }
-
-    void SetAttackDoneFalse()
-    {
-        SetAttackDone(false);
-    }
-
 }
