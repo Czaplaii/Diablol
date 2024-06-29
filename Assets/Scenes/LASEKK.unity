@@ -1995,6 +1995,7 @@ MonoBehaviour:
   uiUpdate: {fileID: 1899977467}
   fireballSpeed: 10
   spawnDistance: 1.5
+  implosion: {fileID: 0}
 --- !u!136 &759432263
 CapsuleCollider:
   m_ObjectHideFlags: 0

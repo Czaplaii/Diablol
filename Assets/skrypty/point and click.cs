@@ -23,14 +23,16 @@ public class pointandclick : MonoBehaviour
     Vector2 SmoothDeltaPosition;
     Vector2 velocity;
 
+    bool AttackDone;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         agent.speed = staty.moveSpeed;
 
-        agent.acceleration = 8f;
-        agent.angularSpeed = 120f;
+        agent.acceleration = 27f;
+        agent.angularSpeed = 720f;
         agent.stoppingDistance = 0.1f;
 
         animator.applyRootMotion = false;
@@ -112,6 +114,10 @@ public class pointandclick : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            AutoAttack();
+        }
 
     }
 
@@ -243,6 +249,35 @@ public class pointandclick : MonoBehaviour
     }
     void AutoAttack()
     {
-        //tu skrypt do atakowania
+        //bool autoAttack = animator.Get;
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
+            if (animator == null)
+            {
+                Debug.LogWarning("Animator is not assigned.");
+                return;
+            }
+            SetAttackDoneFalse();
+            Debug.Log("ATAK");
+            animator.SetTrigger("AutoAttack");
+
+            SetAttackDoneTrue();
+        }
     }
+
+    void SetAttackDone(bool value)
+    {
+        animator.SetBool("AttackDone", value);
+    }
+
+    void SetAttackDoneTrue()
+    {
+        SetAttackDone(true);
+
+    }
+
+    void SetAttackDoneFalse()
+    {
+        SetAttackDone(false);
+    }
+
 }

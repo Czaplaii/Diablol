@@ -6,6 +6,7 @@ TagManager:
   tags:
   - popupMenu
   - enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
