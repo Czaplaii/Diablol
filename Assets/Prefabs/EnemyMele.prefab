@@ -160,6 +160,9 @@ MonoBehaviour:
   melee: {fileID: 0}
   gun: {fileID: 0}
   noz: {fileID: 0}
+  hp: 100
+  hpPrefab: {fileID: 1816440169473127684, guid: 9398e131a6369ab448d606fe63ca2b8d, type: 3}
+  manaPrefab: {fileID: 1259524090604316902, guid: 889cef8b62611e24ea4847002ecf16cc, type: 3}
 --- !u!1 &9107881557012087403
 GameObject:
   m_ObjectHideFlags: 0

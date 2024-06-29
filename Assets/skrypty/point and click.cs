@@ -72,10 +72,6 @@ public class pointandclick : MonoBehaviour
                 Move(out hit);
             }
 
-            if(Input.GetKey(KeyCode.Space))
-            {
-
-            }
 
             if (Input.GetKey(KeyCode.Q) && cd && staty.mana>manacostq && q == 1)
             {

@@ -25,6 +25,10 @@ public class Enemy_AI : MonoBehaviour
     [SerializeField] GameObject gun;
     [SerializeField] GameObject noz;
 
+    [SerializeField] double hp = 100;
+
+    [SerializeField] GameObject hpPrefab, manaPrefab;
+
     void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, ktoToPlayer);
@@ -90,5 +94,42 @@ public class Enemy_AI : MonoBehaviour
     void ResetAttack()
     {
         alreadyAttacked = false;
+    }
+
+    public void TakeDamage(double damage)
+    {
+        hp -= damage;
+        Debug.Log("Enemy HP: " + hp);
+
+        if (hp <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        // Logika œmierci przeciwnika
+        Debug.Log("Enemy died");
+        float random = Random.value;
+        if (random <= 0.25f)
+            Spawnhp();
+        else if (random <= 0.50f)
+            Spawnmana();
+        else
+            Debug.Log("nic");
+        Destroy(gameObject);
+
+    }
+
+    void Spawnmana()
+    {
+        Debug.Log("mana na ziemi");
+        Instantiate(hpPrefab, transform.position, Quaternion.identity);
+    }
+    void Spawnhp()
+    {
+        Debug.Log("hp na ziemi");
+        Instantiate(manaPrefab, transform.position, Quaternion.identity);
     }
 }
