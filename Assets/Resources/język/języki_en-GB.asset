@@ -176,6 +176,18 @@ MonoBehaviour:
     m_Localized: Unlocks explosion ability(R)
     m_Metadata:
       m_Items: []
+  - m_Id: 2232733000081408
+    m_Localized: Thanks for playing!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2232839518625792
+    m_Localized: BACK TO MAIN MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2233017080291328
+    m_Localized: 'CREDITS:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

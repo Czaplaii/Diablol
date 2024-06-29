@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.SceneManagement;
 public class SettingsMenu : MonoBehaviour
 {
     private bool active = false;
@@ -37,5 +38,10 @@ public class SettingsMenu : MonoBehaviour
     {
         int ID = PlayerPrefs.GetInt("LocalKey", 0);
         ChangeLocale(ID);
+    }
+
+    public void BacktoMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

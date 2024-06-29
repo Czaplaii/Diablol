@@ -178,6 +178,18 @@ MonoBehaviour:
     m_Localized: "Odblokowujesz umiej\u0119tno\u015B\u0107 eksplozji(R)"
     m_Metadata:
       m_Items: []
+  - m_Id: 2232733000081408
+    m_Localized: "Dzi\u0119kujemy za uwag\u0119!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2232839518625792
+    m_Localized: "POWR\xD3T DO MENU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2233017080291328
+    m_Localized: 'WYKONALI:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -192,15 +192,14 @@ public class pointandclick : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             Vector3 targetPosition = hit.point;
-            Vector3 direction = (targetPosition - transform.position).normalized;
+            Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z).normalized;
             Vector3 spawnPosition = transform.position + direction * spawnDistance;
+            spawnPosition.y +=3f;
             GameObject fireball = Instantiate(fireballprefab, spawnPosition, Quaternion.identity);
             kulaognia fireballz = fireball.GetComponent<kulaognia>();
-            if (fireballz != null)
-            {
-                fireballz.SetDirection(targetPosition);
-                fireballz.speed = fireballSpeed;
-            }
+            Vector3 adjustedTargetPosition = new Vector3(targetPosition.x, spawnPosition.y, targetPosition.z);
+            fireballz.SetDirection(adjustedTargetPosition);
+            fireballz.speed = fireballSpeed;
         }
     }
 

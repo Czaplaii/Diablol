@@ -171,6 +171,18 @@ MonoBehaviour:
     m_Key: Skill6 D
     m_Metadata:
       m_Items: []
+  - m_Id: 2232733000081408
+    m_Key: "Dzi\u0119kujemy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2232839518625792
+    m_Key: "do menu g\u0142\xF3wnego"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2233017080291328
+    m_Key: CREDITS
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

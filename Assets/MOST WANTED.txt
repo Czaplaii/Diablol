@@ -1,8 +1,7 @@
 PRIORYTET HIGH :
 animacje
 przeciwnicy
-pętla po grze
-strona końcowa z autorami
+pętla po grze - brakuje przejścia z mapy głównej na credits
 
 PRIORYTET MEDIUM :
 losowe dropy z enemy - exp, potka many, potka zdrowia lub nic
