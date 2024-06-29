@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PopupMenu : MonoBehaviour
 {
-    [SerializeField] GameObject popupmenu, settings_panel;
+    [SerializeField] GameObject pauza, settings_panel;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -12,13 +12,13 @@ public class PopupMenu : MonoBehaviour
             if(Time.timeScale == 1)
             {
                 Time.timeScale = 0;
-                popupmenu.SetActive(true);
+                pauza.SetActive(true);
                 
             }
             else
             {
                 ResumeGame();
-                popupmenu.SetActive(false);
+                pauza.SetActive(false);
             }
         }
     }
@@ -26,7 +26,7 @@ public class PopupMenu : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        popupmenu.SetActive(false);
+        pauza.SetActive(false);
     }
 
     public void OpenSettings()

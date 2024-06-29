@@ -29,6 +29,9 @@ public class CharacterStats : ScriptableObject
     public double explosiondmg = 60;
     public double aadmgstr = 20;
     public double aadmgdex = 15;
+    //taking dmg
+    public int bullet = 10;
+    public int knife = 15;
 
     public void bonusms(float ilosc)
     {
