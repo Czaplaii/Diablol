@@ -5,15 +5,12 @@ pętla po grze - brakuje przejścia z mapy głównej na credits
 
 PRIORYTET MEDIUM :
 losowe dropy z enemy - exp, potka many, potka zdrowia lub nic
-	potka many skrypt,
-	potka zdrowia skrypt,
 	kulka expa goni gracza, skrypt
 potencjalna zmiana sterowania lub kamery
 
 PRIORYTET LOW:
 pułapki zadające obrażenia
 tutoriale / wstawki fabularne
-poprawka do fireball by pojawiał się wyżej
 
 
 -------------------------------

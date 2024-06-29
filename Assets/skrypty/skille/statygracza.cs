@@ -130,4 +130,14 @@ public class CharacterStats : ScriptableObject
     {
         maxmana = maxmana + (5 * (wisdom - 10) + 2 * (inteligence - 10));
     }
+
+    public void hprefill()
+    {
+        hp += 50;
+    }
+
+    public void manarefill()
+    {
+        mana += 50;
+    }
 } 
