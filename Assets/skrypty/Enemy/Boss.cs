@@ -17,16 +17,23 @@ public class Boss : MonoBehaviour
     bool playerInSightRange, playerInAttackRange;
 
     [SerializeField] double hp = 200;
+    
 
     [SerializeField] GameObject bossSpell;
 
     Vector2 smoothDeltaPosition;
     Vector2 velocity;
 
+    string naame = "locomotion";
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+    }
+    private void Start()
+    {
+        double bossmaxhp = hp;
     }
 
     void Update()
@@ -42,31 +49,30 @@ public class Boss : MonoBehaviour
     {
         agent.isStopped = false;
         agent.SetDestination(player.position);
-        Debug.Log("Chasing player at position: " + player.position);
+       // Debug.Log("Chasing player at position: " + player.position);
     }
 
     private void OnAnimatorMove()
     {
-        // This will ensure we don't reset the position each frame
         if (agent.remainingDistance > agent.stoppingDistance)
         {
-            // Calculate the delta position before updating the transform's position
             Vector3 worldDeltaPosition = agent.velocity * Time.deltaTime;
-            float deltaTime = Time.deltaTime;
             Vector3 localDeltaPosition = transform.InverseTransformVector(worldDeltaPosition);
-            
-            // Smoothly interpolate the delta position for smoother animation transitions
+
             smoothDeltaPosition = Vector2.Lerp(smoothDeltaPosition, new Vector2(localDeltaPosition.x, localDeltaPosition.z), 0.5f);
-            velocity = smoothDeltaPosition / deltaTime;
-            
-            Debug.Log("Current transform position: " + transform.position);
-            Debug.Log("Velocity: " + velocity);
-            
-            // Update the animator parameters
+            velocity = smoothDeltaPosition / Time.deltaTime;
+
             animator.SetFloat("locomotion", velocity.magnitude);
-            
-            // Use the animator's movement to move the character
+            animator.SetFloat(naame, velocity.magnitude);
+            Debug.Log(velocity.magnitude);
+
             transform.position += worldDeltaPosition;
         }
+        else
+        {
+            animator.SetFloat("locomotion", 0f);
+            animator.SetFloat(naame, 0f);
+        }
     }
+
 }
