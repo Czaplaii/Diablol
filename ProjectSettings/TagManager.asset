@@ -7,11 +7,12 @@ TagManager:
   - popupMenu
   - enemy
   - Weapon
+  - bossWeapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - post processing
   - Water
   - UI
   - coToGround
