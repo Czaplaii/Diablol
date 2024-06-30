@@ -1,13 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class eksplozja : MonoBehaviour
 {
+    [SerializeField] CharacterStats staty;
+    private ParticleSystem particleSystem;
+    private HashSet<Collider> damagedEnemies;
     // Start is called before the first frame update
     void Start()
     {
-        
+        particleSystem = GetComponent<ParticleSystem>();
+        damagedEnemies = new HashSet<Collider>();
     }
 
     // Update is called once per frame
@@ -16,11 +20,16 @@ public class eksplozja : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if ((collision.collider.CompareTag("enemy")))
+        if (other.CompareTag("enemy") && !damagedEnemies.Contains(other))
         {
-            //zadaj obrazenia przeciwnikowi jak trafisz
+            Enemy_AI enemystats = other.GetComponent<Enemy_AI>();
+            if (enemystats != null)
+            {
+                enemystats.TakeDamage(staty.explosiondmg);
+                damagedEnemies.Add(other);
+            }
         }
     }
 

@@ -1,9 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class kulaognia : MonoBehaviour
 {
+    [SerializeField] CharacterStats staty;
     public float speed = 10f;
     private Vector3 direction;
     public float czaszycia = 3f;
@@ -25,13 +26,15 @@ public class kulaognia : MonoBehaviour
     }
 
     // Zdarzenie kolizji
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if ((collision.collider.CompareTag("enemy")))
+        if (other.CompareTag("enemy"))
         {
-            //zadaj obra¿enia przeciwnikowi jak trafisz
+            Enemy_AI enemystats = other.GetComponent<Enemy_AI>();
+            Debug.Log("tag sprawdzony");
+            enemystats.TakeDamage(staty.fireballdmg);
+            Debug.Log("skrypt dziaï¿½a");
         }
-        // Zniszczenie kuli ognia po trafieniu w obiekt
         Destroy(gameObject);
     }
 }

@@ -197,7 +197,7 @@ public class pointandclick : MonoBehaviour
             Vector3 targetPosition = hit.point;
             Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z).normalized;
             Vector3 spawnPosition = transform.position + direction * spawnDistance;
-            spawnPosition.y +=3f;
+            spawnPosition.y +=2f;
             GameObject fireball = Instantiate(fireballprefab, spawnPosition, Quaternion.identity);
             kulaognia fireballz = fireball.GetComponent<kulaognia>();
             Vector3 adjustedTargetPosition = new Vector3(targetPosition.x, spawnPosition.y, targetPosition.z);
