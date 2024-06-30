@@ -29,6 +29,8 @@ public class Enemy_AI : MonoBehaviour
 
     [SerializeField] GameObject hpPrefab, manaPrefab;
 
+    [SerializeField] hp gracz;
+
     void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, ktoToPlayer);
@@ -104,6 +106,7 @@ public class Enemy_AI : MonoBehaviour
         if (hp <= 0)
         {
             Die();
+            gracz.Exp();
         }
     }
 
@@ -125,11 +128,11 @@ public class Enemy_AI : MonoBehaviour
     void Spawnmana()
     {
         Debug.Log("mana na ziemi");
-        Instantiate(hpPrefab, transform.position, Quaternion.identity);
+        Instantiate(manaPrefab, transform.position, Quaternion.identity);
     }
     void Spawnhp()
     {
         Debug.Log("hp na ziemi");
-        Instantiate(manaPrefab, transform.position, Quaternion.identity);
+        Instantiate(hpPrefab, transform.position, Quaternion.identity);
     }
 }

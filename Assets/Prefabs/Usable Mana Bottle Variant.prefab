@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  rodzaj: 1
+  rodzaj: 2
   staty: {fileID: 11400000, guid: b9548b136a77e22489d2625c615bf1c6, type: 2}
 --- !u!65 &8261302500981059174
 BoxCollider:

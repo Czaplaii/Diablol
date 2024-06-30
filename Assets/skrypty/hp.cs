@@ -9,6 +9,8 @@ public class hp : MonoBehaviour
     [SerializeField] GameObject gameover, player;
     [SerializeField] Animator animator;
 
+    int xp = 0;
+
     void Start()
     {
         staty.hp = staty.maxhp;
@@ -31,5 +33,19 @@ public class hp : MonoBehaviour
     void ResetPoziomu()
     {
         //SceneManager.LoadScene(PlayerPrefs.GetInt("obecna"));
+    }
+    
+    void LvlUp()
+    {
+        staty.skillpointy(1);
+    }
+    public void Exp()
+    {
+        xp += 50;
+        if (xp == 100)
+        {
+            LvlUp();
+            xp = 0;
+        }
     }
 }
