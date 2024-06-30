@@ -287,9 +287,25 @@ public class pointandclick : MonoBehaviour
     {
         changeGun = GetComponent<ChangeGun>();
         weapon = changeGun.GetWeapon();
-        if (weapon) {
+        Debug.Log(weapon.name);
+        if (weapon.name == "Miecz")
+        {
             //bool autoAttack = animator.Get;
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                animator.enabled = false;
+                animator.enabled = true;
+                SetAttackDone(false);
+                Debug.Log("ATAK");
+                animator.SetTrigger("AutoAttack");
+
+                SetAttackDone(true);
+            }
+        }
+        else if (weapon.name == "Topor")
+        {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
                 animator.enabled = false;
                 animator.enabled = true;
                 SetAttackDone(false);
