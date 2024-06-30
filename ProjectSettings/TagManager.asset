@@ -7,6 +7,7 @@ TagManager:
   - popupMenu
   - enemy
   - Weapon
+  - bossWeapon
   layers:
   - Default
   - TransparentFX

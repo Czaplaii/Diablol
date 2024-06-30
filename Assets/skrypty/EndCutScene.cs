@@ -5,7 +5,7 @@ public class EndCutScene : MonoBehaviour
 {
     void Start()
     {
-        Invoke(nameof(Delay), 58f);
+        Invoke(nameof(Delay), 54.5f);
     }
     void Delay()
     {

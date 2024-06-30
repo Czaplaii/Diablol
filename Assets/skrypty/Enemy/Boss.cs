@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Boss : MonoBehaviour
     Animator animator;
     [SerializeField] Transform player;
     [SerializeField] LayerMask bossGround, ktoToPlayer;
+
+    [SerializeField] BoxCollider box;
+    [SerializeField] Animator noz;
 
     [SerializeField] float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -41,8 +45,8 @@ public class Boss : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, ktoToPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, ktoToPlayer);
 
-        if (playerInSightRange && !playerInAttackRange)
-            Chase();
+        if (playerInSightRange && !playerInAttackRange) Chase();
+        if (playerInSightRange && playerInAttackRange) Attack();
     }
 
     void Chase()
@@ -75,4 +79,33 @@ public class Boss : MonoBehaviour
         }
     }
 
+    void Attack()
+    {
+        if (!alreadyAttacked) 
+        {
+            box.enabled = true;
+            noz.SetBool("Attack", true);
+            StartCoroutine(DisableColliderAfterAttack());
+        }
+    }
+    IEnumerator DisableColliderAfterAttack()
+    {
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        box.enabled = false;
+        noz.SetBool("Attack", false);
+    }
+
+    public void TakeDamage(double damage)
+    {
+        hp -= damage;
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+            Invoke(nameof(Delay), 2f);
+        }
+    }
+    void Delay()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
