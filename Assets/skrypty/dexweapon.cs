@@ -10,7 +10,7 @@ public class dexweapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,7 +22,6 @@ public class dexweapon : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         currentWeapon = weapon.GetWeapon();
-        Debug.Log(currentWeapon.name);
         Debug.Log("JEST W TRIGERZE");
         if (other.CompareTag("enemy"))
         {
