@@ -22,6 +22,7 @@ public class pointandclick : MonoBehaviour
     [SerializeField] GameObject implosion;
     Vector2 SmoothDeltaPosition;
     Vector2 velocity;
+    [SerializeField] AudioSource heal, tp, fireb;
 
     bool AttackDone;
 
@@ -52,8 +53,10 @@ public class pointandclick : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         uiUpdate = FindObjectOfType<UI_stats>();
-
-
+        PlayerPrefs.SetInt("qskill", 0);
+        PlayerPrefs.SetInt("wskill", 0);
+        PlayerPrefs.SetInt("eskill", 0);
+        PlayerPrefs.SetInt("rskill", 0);
 
     }
 
@@ -208,6 +211,7 @@ public class pointandclick : MonoBehaviour
                 Vector3 spawnPosition = transform.position + direction * spawnDistance;
                 spawnPosition.y += 2f;
                 GameObject fireball = Instantiate(fireballprefab, spawnPosition, Quaternion.identity);
+                fireb.Play();
                 kulaognia fireballz = fireball.GetComponent<kulaognia>();
                 Vector3 adjustedTargetPosition = new Vector3(targetPosition.x, spawnPosition.y, targetPosition.z);
                 fireballz.SetDirection(adjustedTargetPosition);
@@ -231,6 +235,7 @@ public class pointandclick : MonoBehaviour
             SetHealDone(false);
             animator.SetTrigger("Heal");
             Instantiate(healPrefab, agentPosition, Quaternion.identity);
+            heal.Play();
             Debug.Log("Posz³o info");
             SetHealDone(true);
         }
@@ -261,6 +266,7 @@ public class pointandclick : MonoBehaviour
                 Instantiate(tpPrefab1, agentPosition, rotation);
                 Instantiate(tpPrefab2, agentPosition, rotation);
                 Instantiate(tpPrefab3, agentPosition, rotation);
+                tp.Play();
             }
         }
     }
