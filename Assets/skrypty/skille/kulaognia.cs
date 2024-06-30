@@ -34,7 +34,7 @@ public class kulaognia : MonoBehaviour
             Debug.Log("tag sprawdzony");
             enemystats.TakeDamage(staty.fireballdmg);
             Debug.Log("skrypt dzia�a");
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
