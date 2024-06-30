@@ -12,7 +12,7 @@ public class Boss : MonoBehaviour
     [SerializeField] LayerMask bossGround, ktoToPlayer;
 
     [SerializeField] BoxCollider box;
-    [SerializeField] Animator noz;
+    //[SerializeField] Animator noz;
 
     [SerializeField] float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -83,16 +83,17 @@ public class Boss : MonoBehaviour
     {
         if (!alreadyAttacked) 
         {
-            box.enabled = true;
-            noz.SetBool("Attack", true);
-            StartCoroutine(DisableColliderAfterAttack());
+            //box.enabled = true;
+            animator.SetTrigger("Attack");
+           // StartCoroutine(DisableColliderAfterAttack());
         }
     }
     IEnumerator DisableColliderAfterAttack()
     {
         yield return new WaitForSeconds(timeBetweenAttacks);
         box.enabled = false;
-        noz.SetBool("Attack", false);
+        //noz.SetBool("Attack", false);
+        
     }
 
     public void TakeDamage(double damage)
@@ -100,8 +101,8 @@ public class Boss : MonoBehaviour
         hp -= damage;
         if(hp <= 0)
         {
-            Destroy(gameObject);
             Invoke(nameof(Delay), 2f);
+            gameObject.gameObject.SetActive(false);
         }
     }
     void Delay()

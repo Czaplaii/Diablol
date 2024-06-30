@@ -137,10 +137,12 @@ public class CharacterStats : ScriptableObject
     public void hprefill()
     {
         hp += 50;
+        if(hp > maxhp) { hp = maxhp; }
     }
 
     public void manarefill()
     {
         mana += 50;
+        if(mana > maxmana) {  mana = maxmana; }
     }
 } 

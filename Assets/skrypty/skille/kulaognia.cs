@@ -36,5 +36,13 @@ public class kulaognia : MonoBehaviour
             Debug.Log("skrypt dzia�a");
             Destroy(gameObject);
         }
+        if (other.CompareTag("boss"))
+        {
+            Boss enemystats = other.GetComponent<Boss>();
+            Debug.Log("tag sprawdzony");
+            enemystats.TakeDamage(staty.fireballdmg / 1.5f);
+            Debug.Log("skrypt dzia�a");
+            Destroy(gameObject);
+        }
     }
 }

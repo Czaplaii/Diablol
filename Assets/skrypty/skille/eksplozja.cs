@@ -31,6 +31,15 @@ public class eksplozja : MonoBehaviour
                 damagedEnemies.Add(other);
             }
         }
+        else if(other.CompareTag("boss") && !damagedEnemies.Contains(other))
+        {
+            Boss enemystats = other.GetComponent<Boss>();
+            if (enemystats != null)
+            {
+                enemystats.TakeDamage(staty.explosiondmg / 1.5f);
+                damagedEnemies.Add(other);
+            }
+        }
     }
 
 }
