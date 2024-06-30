@@ -68,7 +68,7 @@ public class Boss : MonoBehaviour
 
             animator.SetFloat("locomotion", velocity.magnitude);
             animator.SetFloat(naame, velocity.magnitude);
-            Debug.Log(velocity.magnitude);
+           // Debug.Log(velocity.magnitude);
 
             transform.position += worldDeltaPosition;
         }
