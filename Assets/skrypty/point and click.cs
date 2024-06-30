@@ -24,8 +24,13 @@ public class pointandclick : MonoBehaviour
     Vector2 velocity;
 
     bool AttackDone;
-    [SerializeField] ParticleSystem healPrefab;
 
+    ChangeGun changeGun;
+    GameObject weapon;
+    [SerializeField] ParticleSystem healPrefab;
+    [SerializeField] ParticleSystem tpPrefab1;
+    [SerializeField] ParticleSystem tpPrefab2;
+    [SerializeField] ParticleSystem tpPrefab3;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -39,7 +44,6 @@ public class pointandclick : MonoBehaviour
         animator.applyRootMotion = false;
         agent.updatePosition = false;
         agent.updateRotation = true;
-
 
     }
 
@@ -191,25 +195,31 @@ public class pointandclick : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            Vector3 targetPosition = hit.point;
-            Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z).normalized;
-            Vector3 spawnPosition = transform.position + direction * spawnDistance;
-            spawnPosition.y +=2f;
-            GameObject fireball = Instantiate(fireballprefab, spawnPosition, Quaternion.identity);
-            kulaognia fireballz = fireball.GetComponent<kulaognia>();
-            Vector3 adjustedTargetPosition = new Vector3(targetPosition.x, spawnPosition.y, targetPosition.z);
-            fireballz.SetDirection(adjustedTargetPosition);
-            fireballz.speed = fireballSpeed;
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cast fireball")) {
+            animator.enabled = false;
+            animator.enabled = true;
+            SetFireballDone(false);
+            animator.SetTrigger("Fireball");
+            SetFireballDone(true);
+            if (Physics.Raycast(ray, out hit))
+            {
+                Vector3 targetPosition = hit.point;
+                Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z).normalized;
+                Vector3 spawnPosition = transform.position + direction * spawnDistance;
+                spawnPosition.y += 2f;
+                GameObject fireball = Instantiate(fireballprefab, spawnPosition, Quaternion.identity);
+                kulaognia fireballz = fireball.GetComponent<kulaognia>();
+                Vector3 adjustedTargetPosition = new Vector3(targetPosition.x, spawnPosition.y, targetPosition.z);
+                fireballz.SetDirection(adjustedTargetPosition);
+                fireballz.speed = fireballSpeed;
+            }
         }
     }
 
     void LaunchShield()
     {
         Vector3 agentPosition = agent.transform.position;
-        agentPosition.y = 0;
+        agentPosition.y = 1.5f;
         hp zdrowie;
         zdrowie = GetComponent<hp>();
         int increaseAmount = Mathf.RoundToInt(staty.maxhp * 0.5f);
@@ -243,14 +253,30 @@ public class pointandclick : MonoBehaviour
             if (NavMesh.SamplePosition(hit.point, out navHit, 0.1f, NavMesh.AllAreas))
             {
                 agent.Warp(navHit.position);
+                Vector3 agentPosition = agent.transform.position;
+                agentPosition.y = 1.5f;
+
+                Quaternion rotation = Quaternion.Euler(90, 0, 0);
+
+                Instantiate(tpPrefab1, agentPosition, rotation);
+                Instantiate(tpPrefab2, agentPosition, rotation);
+                Instantiate(tpPrefab3, agentPosition, rotation);
             }
         }
     }
 
+
     void LaunchAoe()
     {
-        implosion.SetActive(true);
-        Invoke("AoeOff", 1);
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cast ultimate")) {
+            animator.enabled = false;
+            animator.enabled = true;
+            SetUltDone(false);
+            animator.SetTrigger("Ult");
+            SetUltDone(true);
+            implosion.SetActive(true);
+            Invoke("AoeOff", 1);
+        }
     }
 
     void AoeOff()
@@ -259,15 +285,19 @@ public class pointandclick : MonoBehaviour
     }
     void AutoAttack()
     {
-        //bool autoAttack = animator.Get;
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
-            animator.enabled = false;
-            animator.enabled = true;
-            SetAttackDone(false);
-            Debug.Log("ATAK");
-            animator.SetTrigger("AutoAttack");
+        changeGun = GetComponent<ChangeGun>();
+        weapon = changeGun.GetWeapon();
+        if (weapon) {
+            //bool autoAttack = animator.Get;
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
+                animator.enabled = false;
+                animator.enabled = true;
+                SetAttackDone(false);
+                Debug.Log("ATAK");
+                animator.SetTrigger("AutoAttack");
 
-            SetAttackDone(true);
+                SetAttackDone(true);
+            }
         }
     }
 
@@ -278,6 +308,17 @@ public class pointandclick : MonoBehaviour
     
     void SetHealDone(bool value)
     {
-        animator.SetBool("Heal", value);
+        animator.SetBool("HealDone", value);
     }
+
+    void SetFireballDone(bool value)
+    {
+        animator.SetBool("FireballDone", value);
+    }
+
+    void SetUltDone(bool value)
+    {
+        animator.SetBool("UltDone", value);
+    }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeGun : MonoBehaviour
 {
     public GameObject inventory;
-    public List<GameObject> weapons = new List<GameObject>(new GameObject[4]); // Zak³adaj¹c 4 miejsca
+    public List<GameObject> weapons = new List<GameObject>(new GameObject[3]); 
 
     GameObject currentGun;
 
@@ -45,5 +45,9 @@ public class ChangeGun : MonoBehaviour
         {
             currentGun.SetActive(true);
         }
+    }
+    public GameObject GetWeapon()
+    {
+        return currentGun;
     }
 }

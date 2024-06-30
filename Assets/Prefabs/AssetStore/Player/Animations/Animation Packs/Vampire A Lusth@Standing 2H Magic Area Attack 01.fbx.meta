@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 6af98fd44c8c09746b9d2c612fa6c69e
+guid: af9a13b1414962541b08d54a1cbfebae
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Demon_MAT
-    second: {fileID: 2100000, guid: 0c664b9f6edd82c41952cb649d0fb76b, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Demon__diffuse
-    second: {fileID: 2800000, guid: dea9e1ba371918d41a34df1c5e7cbe31, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Demon__normal
-    second: {fileID: 2800000, guid: 352e6fba180153f408d2bd0dcc5c0f6b, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Demon__specular
-    second: {fileID: 2800000, guid: e12c3b65e953aeb49b4c86c5f8899e1d, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -97,11 +77,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - b86f72351ff9b74478cd80119e331d6d
-  - f6dac86f8712ee24c9283c7fd87fbd1b
-  - 6b7d5fc2e7c23e04593ef9a874634303
-  - 8b075f250b8b46c4c9b6076a8c36e561
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
