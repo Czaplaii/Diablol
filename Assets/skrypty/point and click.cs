@@ -215,6 +215,8 @@ public class pointandclick : MonoBehaviour
         int increaseAmount = Mathf.RoundToInt(staty.maxhp * 0.5f);
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cast heal"))
         {
+            animator.enabled = false;
+            animator.enabled = true;
             animator.StopPlayback();
             SetHealDone(false);
             animator.SetTrigger("Heal");
@@ -259,7 +261,8 @@ public class pointandclick : MonoBehaviour
     {
         //bool autoAttack = animator.Get;
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
-            animator.StopPlayback();
+            animator.enabled = false;
+            animator.enabled = true;
             SetAttackDone(false);
             Debug.Log("ATAK");
             animator.SetTrigger("AutoAttack");
